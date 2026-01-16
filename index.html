@@ -1,1 +1,136 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Menu – Tonnarello</title>
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 0; background:#fafafa; color:#111; }
+    header { padding: 28px 16px; background: #111; color: #fff; }
+    header h1 { margin: 0 0 6px; font-size: 30px; letter-spacing: .3px; }
+    header p { margin: 0; opacity: .85; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 18px 16px 40px; }
+    .section-title { margin: 26px 0 12px; font-size: 20px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+    .card { background:#fff; border-radius: 14px; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,.06); }
+    .card img { width:100%; height: 170px; object-fit: cover; display:block; }
+    .card .content { padding: 12px 12px 14px; }
+    .name { font-weight: 800; margin: 0 0 6px; }
+    .desc { margin: 0 0 10px; opacity: .8; font-size: 14px; line-height: 1.35; }
+    .row { display:flex; justify-content: space-between; align-items:center; gap: 10px; }
+    .price { font-weight: 800; }
+    .tag { font-size: 12px; padding: 4px 8px; border-radius: 999px; background:#f2f2f2; }
+    footer { padding: 18px 16px; text-align:center; opacity:.75; }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Tonnarello</h1>
+      <p>Menu • Tel: [inserisci numero] • Indirizzo: [inserisci via]</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <h2 class="section-title">Antipasti</h2>
+    <div class="grid">
+
+      <div class="card">
+        <img src="img/carciofoallagiudia.jpg" alt="carciofoallagiudia" />
+        <div class="content">
+          <p class="name">carciofoallagiudia</p>
+          <p class="desc">Croccante fuori, tenero dentro. Tradizione romana.</p>
+          <div class="row">
+            <span class="tag">Specialità</span>
+            <span class="price">€ [9]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="img/cestinosuppli.jpg" alt="cestinosuppli" />
+        <div class="content">
+          <p class="name">Cestino Supplì</p>
+          <p class="desc">Supplì dorati e filanti, perfetti da condividere.</p>
+          <div class="row">
+            <span class="tag">Street food</span>
+            <span class="price">€ [8]</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <h2 class="section-title">Primi</h2>
+    <div class="grid">
+
+      <div class="card">
+        <img src="img/cacioepep.jpg" alt="Tonnarello Cacio e Pepe" />
+        <div class="content">
+          <p class="name">Tonnarello Cacio e Pepe</p>
+          <p class="desc">Cremoso, intenso, con pepe macinato al momento.</p>
+          <div class="row">
+            <span class="tag">Top</span>
+            <span class="price">€ [11]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="img/lasagna.jpg" alt="Lasagna" />
+        <div class="content">
+          <p class="name">Lasagna</p>
+          <p class="desc">Strati ricchi e gratinatura dorata.</p>
+          <div class="row">
+            <span class="tag">Forno</span>
+            <span class="price">€ [14]</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <h2 class="section-title">Insalate</h2>
+    <div class="grid">
+
+      <div class="card">
+        <img src="img/caprese.jpg" alt="Caprese" />
+        <div class="content">
+          <p class="name">Caprese</p>
+          <p class="desc">Mozzarella, pomodoro, basilico e olio EVO.</p>
+          <div class="row">
+            <span class="tag">Fresca</span>
+            <span class="price">€ [9]</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <h2 class="section-title">Dolci</h2>
+    <div class="grid">
+
+      <div class="card">
+        <img src="img/cheesecakenutella.jpg" alt="Cheese cake con Nutella" />
+        <div class="content">
+          <p class="name">Cheese cake con Nutella</p>
+          <p class="desc">Cremosa e golosa, con topping alla Nutella.</p>
+          <div class="row">
+            <span class="tag">Dolcissimo</span>
+            <span class="price">€ [9]</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    © Tonnarello • Allergeni: chiedi al personale
+  </footer>
+</body>
+</html>
 
