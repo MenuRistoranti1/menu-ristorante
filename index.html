@@ -16,32 +16,31 @@
 
     html{ scroll-behavior: smooth; }
 
-    /* ===== SFONDO SEMPRE INTERO (NO TAGLI) ===== */
+    /* ===== SFONDO (NON TAGLIA LA SCRITTA) ===== */
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color:#111;
       min-height:100vh;
-      background:#000; /* riempie eventuali spazi */
+      background:#000;
+      top:0 !important; /* evita spostamenti con Google Translate */
     }
- body::before{
-  content:"";
-  position:fixed;
-  inset:0;
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
 
-  /* cache-busting: forza il browser a ricaricare l’immagine */
-  background-image: url('./sfondo.png?v=3');
+      /* se vuoi forzare refresh immagine: cambia v=1 in v=2 */
+      background-image: url('./sfondo.png?v=1');
 
-  /* MOSTRA TUTTA LA SCRITTA (niente tagli) */
-  background-size: 110% auto;     /* adatta alla larghezza */
-  background-position: top center; /* attaccato in alto */
-  background-repeat: no-repeat;
+      /* mostra tutta la scritta (niente tagli) */
+      background-size: 100% auto;     /* adatta alla larghezza */
+      background-position: top center; /* attaccato in alto */
+      background-repeat: no-repeat;
+      background-color:#000;
 
-  background-color: #000;          /* riempie lo spazio sotto */
-  z-index:-2;
-}
-
-    /* leggero velo per leggibilità dei testi sopra */
+      z-index:-2;
+    }
     body::after{
       content:"";
       position:fixed;
@@ -50,11 +49,70 @@
       z-index:-1;
     }
 
+    /* ===== NASCONDI LA BARRA DI GOOGLE TRANSLATE ===== */
+    .goog-te-banner-frame.skiptranslate{ display:none !important; }
+    .skiptranslate{ display:none !important; }
+    iframe.goog-te-banner-frame{ display:none !important; }
+    .goog-logo-link{ display:none !important; }
+    .goog-te-gadget{ color:transparent !important; }
+    body{ position: static !important; }
+
+    /* ===== SWITCHER LINGUA CON BANDIERE ===== */
+    .lang-switch{
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 9999;
+      display:flex;
+      gap:8px;
+      align-items:center;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      color: #fff;
+    }
+    .lang-title{
+      font-size: 13px;
+      font-weight: 700;
+      opacity: .95;
+      margin-right: 2px;
+      user-select:none;
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+    .flag-btn{
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.10);
+      color:#fff;
+      border-radius: 999px;
+      padding: 6px 10px;
+      cursor:pointer;
+      font-weight: 700;
+      transition: transform .08s ease, background .15s ease;
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+    .flag-btn:hover{ background: rgba(255,255,255,0.18); }
+    .flag-btn:active{ transform: scale(0.98); }
+    .flag{
+      font-size: 16px;
+      line-height: 1;
+    }
+    .lang-code{
+      font-size: 12px;
+      opacity:.95;
+    }
+
     /* ===== HERO HOME ===== */
     .hero{
       min-height: 100vh;
       display:flex;
-      align-items:flex-end; /* card più in basso come nel tuo screenshot */
+      align-items:flex-end;
       justify-content:center;
       padding: 28px 16px 46px;
     }
@@ -80,7 +138,6 @@
       font-size: 15px;
     }
 
-    /* bottoni categorie */
     .btn-grid{
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -121,7 +178,6 @@
       padding: 18px;
       box-shadow: var(--shadow);
     }
-
     .section{
       padding: 8px 0 2px;
       scroll-margin-top: 18px;
@@ -131,7 +187,6 @@
       font-size: 22px;
     }
 
-    /* cards piatti */
     .grid{
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -157,7 +212,6 @@
     .price{ font-weight: 850; }
     .tag{ font-size: 12px; padding: 4px 8px; border-radius: 999px; background:#f2f2f2; }
 
-    /* sottosezioni beverage */
     .subsections{
       display:grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -183,6 +237,29 @@
 </head>
 
 <body>
+
+  <!-- SWITCHER LINGUA (BANDIERE) -->
+  <div class="lang-switch" aria-label="Selettore lingua">
+    <div class="lang-title">🌐 Lingua</div>
+    <button class="flag-btn" type="button" onclick="setLang('it')" title="Italiano">
+      <span class="flag">🇮🇹</span><span class="lang-code">IT</span>
+    </button>
+    <button class="flag-btn" type="button" onclick="setLang('en')" title="English">
+      <span class="flag">🇬🇧</span><span class="lang-code">EN</span>
+    </button>
+    <button class="flag-btn" type="button" onclick="setLang('es')" title="Español">
+      <span class="flag">🇪🇸</span><span class="lang-code">ES</span>
+    </button>
+    <button class="flag-btn" type="button" onclick="setLang('fr')" title="Français">
+      <span class="flag">🇫🇷</span><span class="lang-code">FR</span>
+    </button>
+    <button class="flag-btn" type="button" onclick="setLang('de')" title="Deutsch">
+      <span class="flag">🇩🇪</span><span class="lang-code">DE</span>
+    </button>
+  </div>
+
+  <!-- contenitore nascosto per Google Translate -->
+  <div id="google_translate_element" style="display:none;"></div>
 
   <!-- HOME / HERO -->
   <section class="hero" id="home">
@@ -257,26 +334,6 @@
         </div>
       </section>
 
-      <section id="polpette" class="section">
-        <h2 class="section-title">Polpette per tutti</h2>
-        <p class="hint">Scrivimi i nomi delle polpette + prezzi e le metto qui come card.</p>
-      </section>
-
-      <section id="secondi" class="section">
-        <h2 class="section-title">Secondi</h2>
-        <p class="hint">Scrivimi secondi + prezzi e li aggiungo.</p>
-      </section>
-
-      <section id="contorni" class="section">
-        <h2 class="section-title">Contorni</h2>
-        <p class="hint">Scrivimi contorni + prezzi e li aggiungo.</p>
-      </section>
-
-      <section id="pinse" class="section">
-        <h2 class="section-title">Pinse</h2>
-        <p class="hint">Scrivimi pinse + prezzi e le aggiungo.</p>
-      </section>
-
       <section id="insalatone" class="section">
         <h2 class="section-title">Insalatone</h2>
         <div class="grid">
@@ -305,15 +362,8 @@
         </div>
       </section>
 
-      <section id="amari" class="section">
-        <h2 class="section-title">Amari</h2>
-        <p class="hint">Inserisci qui l’elenco degli amari e i prezzi.</p>
-      </section>
-
       <section id="beverage" class="section">
         <h2 class="section-title">Beverage</h2>
-        <p class="hint">Tutte le bevande organizzate in sottosezioni.</p>
-
         <div class="subsections">
           <div class="sub"><h3>Vino della casa</h3><p class="hint">Inserisci prodotti e prezzi.</p></div>
           <div class="sub"><h3>Vini bianchi al bicchiere</h3><p class="hint">Inserisci prodotti e prezzi.</p></div>
@@ -331,9 +381,62 @@
         </div>
       </section>
 
+      <section id="polpette" class="section"><h2 class="section-title">Polpette per tutti</h2><p class="hint">Da compilare.</p></section>
+      <section id="secondi" class="section"><h2 class="section-title">Secondi</h2><p class="hint">Da compilare.</p></section>
+      <section id="contorni" class="section"><h2 class="section-title">Contorni</h2><p class="hint">Da compilare.</p></section>
+      <section id="pinse" class="section"><h2 class="section-title">Pinse</h2><p class="hint">Da compilare.</p></section>
+      <section id="amari" class="section"><h2 class="section-title">Amari</h2><p class="hint">Da compilare.</p></section>
+
     </div>
   </div>
 
   <footer>© Tonnarello • Allergeni: chiedi al personale</footer>
+
+  <script>
+    // ===== Google Translate Widget =====
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        {
+          pageLanguage: 'it',
+          includedLanguages: 'it,en,es,fr,de',
+          autoDisplay: false
+        },
+        'google_translate_element'
+      );
+
+      // Applica lingua salvata (se presente)
+      const saved = localStorage.getItem('menu_lang');
+      if (saved) setLang(saved, true);
+    }
+
+    // Imposta lingua tramite il menu interno di Google Translate
+    function setLang(lang, silent=false) {
+      localStorage.setItem('menu_lang', lang);
+
+      const trySet = () => {
+        const combo = document.querySelector('.goog-te-combo');
+        if (!combo) return false;
+        combo.value = lang;
+        combo.dispatchEvent(new Event('change'));
+        return true;
+      };
+
+      // prova subito, altrimenti ritenta qualche volta (widget può arrivare in ritardo)
+      let attempts = 0;
+      const timer = setInterval(() => {
+        attempts++;
+        if (trySet() || attempts > 15) clearInterval(timer);
+      }, 300);
+
+      if (!silent) {
+        // piccolo feedback (facoltativo)
+        // alert('Lingua impostata: ' + lang.toUpperCase());
+      }
+    }
+  </script>
+
+  <!-- Carica Google Translate -->
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 </body>
 </html>
