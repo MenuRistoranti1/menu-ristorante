@@ -152,6 +152,7 @@
       height: 170px;
       object-fit: cover;
       display:block;
+      cursor: zoom-in;
     }
     .content{ padding: 12px 12px 14px; }
     .name{ font-weight: 900; margin: 0 0 6px; }
@@ -167,6 +168,51 @@
       opacity:.88;
       text-align:center;
       padding: 26px 16px 40px;
+    }
+
+    /* ===== LIGHTBOX ===== */
+    .lightbox{
+      position:fixed;
+      inset:0;
+      background: rgba(0,0,0,.86);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding: 18px;
+      z-index: 9999;
+    }
+    .lightbox.open{ display:flex; }
+    .lightbox img{
+      max-width: min(1200px, 96vw);
+      max-height: 92vh;
+      border-radius: 14px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.45);
+      cursor: zoom-out;
+    }
+    .lightbox .close{
+      position:absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.22);
+      color:#fff;
+      border-radius: 999px;
+      padding: 10px 12px;
+      font-weight: 900;
+      cursor:pointer;
+    }
+    .lightbox .hint{
+      position:absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      color:#fff;
+      opacity:.85;
+      font-size: 13px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      padding: 8px 12px;
+      border-radius: 999px;
     }
   </style>
 </head>
@@ -189,7 +235,6 @@
       <!-- NON tradurre: nome ristorante -->
       <h1 class="hero-title">Tonnarello</h1>
 
-      <!-- (se vuoi anche questa frase tradotta dimmelo) -->
       <p class="hero-sub">Menu digitale • Tocca una categoria per vedere i piatti</p>
 
       <div class="btn-grid">
@@ -581,8 +626,15 @@
 
   <footer>© Tonnarello • Allergeni: chiedi al personale</footer>
 
+  <!-- LIGHTBOX OVERLAY (per tutte le immagini) -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="close" id="lbClose" aria-label="Chiudi">✕</button>
+    <img id="lbImg" alt="">
+    <div class="hint" id="lbHint">Clicca fuori o premi ESC per chiudere</div>
+  </div>
+
   <script>
-    // Traduzioni: SOLO bottoni + titoli sezione + descrizioni piatti
+    // ===== Traduzioni: bottoni + titoli sezione + descrizioni piatti (NON nomi piatti / NON Tonnarello) =====
     const UI = {
       it: {
         btn_antipasti: "Antipasti",
@@ -600,7 +652,8 @@
         sec_contorni: "Contorni",
         sec_pinse: "Pinse",
         sec_insalatone: "Insalatone",
-        sec_dolci: "Dolci"
+        sec_dolci: "Dolci",
+        lb_hint: "Clicca fuori o premi ESC per chiudere"
       },
       en: {
         btn_antipasti: "Starters",
@@ -618,7 +671,8 @@
         sec_contorni: "Sides",
         sec_pinse: "Pinsa",
         sec_insalatone: "Salads",
-        sec_dolci: "Desserts"
+        sec_dolci: "Desserts",
+        lb_hint: "Click outside or press ESC to close"
       },
       es: {
         btn_antipasti: "Entrantes",
@@ -636,7 +690,8 @@
         sec_contorni: "Guarniciones",
         sec_pinse: "Pinsa",
         sec_insalatone: "Ensaladas",
-        sec_dolci: "Postres"
+        sec_dolci: "Postres",
+        lb_hint: "Haz clic fuera o pulsa ESC para cerrar"
       },
       fr: {
         btn_antipasti: "Entrées",
@@ -654,7 +709,8 @@
         sec_contorni: "Accompagnements",
         sec_pinse: "Pinsa",
         sec_insalatone: "Salades",
-        sec_dolci: "Desserts"
+        sec_dolci: "Desserts",
+        lb_hint: "Cliquez hors image ou appuyez sur ÉCHAP pour fermer"
       }
     };
 
@@ -811,6 +867,10 @@
         if (ui[key]) el.textContent = ui[key];
       });
 
+      // Lightbox hint
+      const lbHint = document.getElementById("lbHint");
+      if (lbHint && ui.lb_hint) lbHint.textContent = ui.lb_hint;
+
       // DESC: descrizioni piatti
       const d = DESC[lang] || DESC.it;
       document.querySelectorAll(".desc[data-desc-key]").forEach(p => {
@@ -821,6 +881,42 @@
       localStorage.setItem("menu_lang", lang);
     }
 
+    // ===== LIGHTBOX (per tutte le immagini dentro .card) =====
+    const lb = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lbImg");
+    const lbClose = document.getElementById("lbClose");
+
+    function openLightbox(src, alt){
+      lbImg.src = src;
+      lbImg.alt = alt || "";
+      lb.classList.add("open");
+      lb.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox(){
+      lb.classList.remove("open");
+      lb.setAttribute("aria-hidden", "true");
+      lbImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    document.addEventListener("click", (e) => {
+      const img = e.target.closest(".card img");
+      if(!img) return;
+      openLightbox(img.getAttribute("src"), img.getAttribute("alt"));
+    });
+
+    lbClose.addEventListener("click", closeLightbox);
+    lb.addEventListener("click", (e) => {
+      if(e.target === lb) closeLightbox();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape") closeLightbox();
+    });
+
+    // ===== INIT =====
     const select = document.getElementById("langSelect");
     const saved = localStorage.getItem("menu_lang") || "it";
     if (select){
