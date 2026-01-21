@@ -204,14 +204,18 @@
       cursor: zoom-in;
     }
     .content{ padding: 12px 12px 14px; }
-    .name{
-      font-weight: 900;
-      margin: 0 0 6px;
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      gap: 10px;
-    }
+  .name{
+  font-weight: 900;
+  margin: 0 0 6px;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.name span{
+  flex: 1;
+}
 
     /* icone vicino al nome */
 .dish-icons{
@@ -1489,6 +1493,7 @@ function applyDishIcons(){
     const nameEl = card.querySelector(".name");
     if(!nameEl) return;
 
+    // evita duplicati
     if(nameEl.querySelector(".dish-icons")) return;
 
     const wrap = document.createElement("span");
@@ -1515,6 +1520,7 @@ function applyDishIcons(){
       wrap.appendChild(badge);
     });
 
+    // ✅ metti le icone nella riga (a destra)
     nameEl.appendChild(wrap);
   });
 }
