@@ -127,11 +127,17 @@
       padding: 18px 16px 40px;
     }
     .panel{
-      background: var(--panel);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: var(--shadow);
-    }
+  background: rgba(255,255,255,0.22);
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 14px 40px rgba(0,0,0,.22);
+  backdrop-filter: blur(8px);
+
+  border: 4px dotted rgba(190,70,90,0.85);
+  outline: 2px solid rgba(255,255,255,0.20);
+  outline-offset: 6px;
+}
+
     .section{ padding: 8px 0 2px; scroll-margin-top: 18px; }
     .section-title{ margin: 18px 0 10px; font-size: 22px; }
 
