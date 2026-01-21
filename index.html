@@ -214,58 +214,71 @@
       padding: 8px 12px;
       border-radius: 999px;
     }
-    /* ===== BOX ALLERGENI ===== */
-.allergens{
-  margin-top: 22px;
-  color: #fff;
-  background: rgba(0,0,0,0.42);         /* trasparente */
+/* ===== ALLERGENI (FUORI DAL PANEL) ===== */
+.allergens-wrap{
+  max-width:1100px;
+  margin: 0 auto;
+  padding: 0 16px 40px; /* spazio sotto */
+}
+
+.allergens-box{
+  color:#fff;
+  background: rgba(120,120,120,0.75);   /* grigio trasparente */
   border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 18px;
-  padding: 16px 16px 14px;
+  border-radius: 22px;
+  padding: 18px 18px 16px;
   box-shadow: 0 14px 40px rgba(0,0,0,.28);
   backdrop-filter: blur(10px);
 }
-.allergens h3{
+
+.allergens-box h3{
   margin: 0 0 10px;
-  font-size: 18px;
-  letter-spacing: .2px;
+  font-size: 26px;
+  font-weight: 900;
 }
-.allergens p{
-  margin: 0 0 10px;
-  opacity: .92;
+
+.allergens-box p{
+  margin: 0 0 14px;
+  font-size: 16px;
   line-height: 1.35;
-  font-size: 14px;
+  opacity: .95;
 }
+
 .allergen-grid{
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 8px 16px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
 }
-.allergen-item{
+
+.allergen-pill{
   display:flex;
-  gap: 10px;
-  align-items:flex-start;
-  padding: 8px 10px;
-  border-radius: 14px;
+  align-items:center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 18px;
   background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.18);
 }
-.allergen-num{
-  width: 28px;
-  height: 28px;
+
+.allergen-badge{
+  width: 40px;
+  height: 40px;
   border-radius: 999px;
   display:flex;
   align-items:center;
   justify-content:center;
   font-weight: 900;
-  background: rgba(255,255,255,0.14);
-  border: 1px solid rgba(255,255,255,0.18);
+  font-size: 18px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.20);
   flex: 0 0 auto;
 }
-.allergen-text{
-  font-size: 14px;
-  line-height: 1.25;
+
+.allergen-name{
+  font-size: 18px;
+  font-weight: 800;
 }
+
 
   </style>
 </head>
@@ -935,13 +948,21 @@
 
         </div>
       </section>
+
+
+    </div>
+  </div>
 <!-- ALLERGENI -->
 <section class="allergens" id="allergeni">
   <h3>Legenda Allergeni</h3>
 
   <p>
-    Ai sensi del Reg. (UE) n.1169/2011, negli alimenti e nelle bevande preparati in questo esercizio
-    possono essere contenuti ingredienti o coadiuvanti considerati allergeni. Per informazioni rivolgersi al personale.
+    Ai sensi del Reg. (UE) n. 1169/2011, si avvisa la gentile clientela che negli alimenti e nelle bevande preparati in questo esercizio,
+possono essere contenuti ingredienti o coadiuvanti considerati allergeni. Le informazioni circa la presenza di sostanze o prodotti che
+provocano allergie o intolleranze sono disponibili rivolgendosi al personale in servizio e sul menù.
+Il cibo è una nostra grande passione: i nostri pasti sono realizzati con ingredienti di elevata qualità e facciamo del nostro meglio per
+soddisfare le esigenze dei clienti con allergie alimentari. Tuttavia, non possiamo garantire un ambiente completamente privo di
+allergeni e tracce di alcuni ingredienti potrebbero essere presenti nei nostri posti.
   </p>
 
   <div class="allergen-grid">
@@ -961,10 +982,6 @@
     <div class="allergen-item"><div class="allergen-num">14</div><div class="allergen-text">Molluschi</div></div>
   </div>
 </section>
-
-    </div>
-  </div>
-
   <footer>© Tonnarello • Allergeni: chiedi al personale</footer>
 
   <!-- LIGHTBOX OVERLAY -->
