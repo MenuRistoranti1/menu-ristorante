@@ -1425,17 +1425,21 @@
     lbClose.addEventListener("click", closeLightbox);
     lb.addEventListener("click", (e) => { if(e.target === lb) closeLightbox(); });
     document.addEventListener("keydown", (e) => { if(e.key === "Escape") closeLightbox(); });
+// ===== INIT (DOM pronto) =====
+window.addEventListener("DOMContentLoaded", () => {
+  const select = document.getElementById("langSelect");
+  const saved = localStorage.getItem("menu_lang") || "it";
 
-    // ===== INIT =====
-    const select = document.getElementById("langSelect");
-    const saved = localStorage.getItem("menu_lang") || "it";
-    if (select){
-      select.value = saved;
-      select.addEventListener("change", e => applyLang(e.target.value));
-    }
+  if (select){
+    select.value = saved;
+    select.addEventListener("change", e => applyLang(e.target.value));
+  }
 
-    applyDishIcons();     // <-- aggiunge icone ai piatti
-    applyLang(saved);     // <-- traduce + allergeni
+  applyDishIcons();  // <-- icone
+  applyLang(saved);  // <-- traduzioni + allergeni
+});
+
+
   </script>
 </body>
 </html>
