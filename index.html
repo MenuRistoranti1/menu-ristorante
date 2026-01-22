@@ -122,7 +122,6 @@
       margin:0 auto;
       padding: 18px 16px 40px;
     }
-
     .panel{
       background: var(--panel);
       border-radius: 22px;
@@ -133,7 +132,7 @@
     }
 
     .section{ padding: 8px 0 2px; scroll-margin-top: 18px; }
-    .section-title{ margin: 18px 0 10px; font-size: 22px; }
+    .section-title{ margin: 18px 0 10px; font-size: 22px; color:#111; }
 
     .grid{
       display:grid;
@@ -175,11 +174,13 @@
       gap: 10px;
     }
 
+    /* ✅ contenitore a sinistra: tag + allergeni + icone */
     .meta-left{
       display:flex;
       align-items:center;
       gap: 8px;
       min-width: 0;
+      flex: 1 1 auto;   /* ✅ può restringersi, così il prezzo resta sempre visibile */
     }
 
     .tag{
@@ -188,27 +189,61 @@
       border-radius: 999px;
       background:#f2f2f2;
       white-space: nowrap;
+      flex: 0 0 auto;
     }
 
-    /* ✅ pillola allergeni */
-   /* ✅ pillola allergeni compatta */
-.allergen-pill{
-  font-size: 10.5px;      /* più piccola */
-  padding: 3px 6px;       /* più stretta */
-  border-radius: 999px;
-  background:#f2f2f2;
-  opacity:.95;
+    /* ✅ pillola allergeni (piccola) */
+    .allergen-pill{
+      font-size: 10.5px;
+      padding: 3px 6px;
+      border-radius: 999px;
+      background:#f2f2f2;
+      opacity:.95;
+      white-space: nowrap;
+      flex: 0 0 auto;
 
-  max-width: 120px;       /* limite larghezza */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+      max-width: 92px;       /* più piccola così non invade */
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
     .price{
       font-weight: 900;
       margin-left: auto;
       white-space: nowrap;
+      flex: 0 0 auto;
+    }
+
+    /* ===== ICONE PIATTI ===== */
+    .dish-icons{
+      display:inline-flex;
+      align-items:center;
+      gap: 6px;
+      flex: 0 0 auto;
+    }
+    .dish-icon-badge{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background: transparent;
+      border: 0;
+      padding: 0;
+      box-shadow: none;
+    }
+    .dish-icon{
+      width: 18px;
+      height: 18px;
+      display:block;
+      pointer-events:none;
+    }
+    .dish-icon.leaf{ color:#2e7d32; }
+    .dish-icon-img{
+      width: 20px;
+      height: 20px;
+      display:block;
+      object-fit: contain;
+      pointer-events:none;
+      user-select:none;
     }
 
     footer{
@@ -271,7 +306,7 @@
       border-radius: 999px;
     }
 
-    /* ===== ALLERGENI ===== */
+    /* ===== ALLERGENI BOX ===== */
     .allergens-wrap{
       max-width:1100px;
       margin: 0 auto;
@@ -362,7 +397,6 @@
       </div>
 
       <h1 class="hero-title">Tonnarello</h1>
-
       <p class="hero-sub" data-ui="hero_sub">Menu digitale • Tocca una categoria per vedere i piatti</p>
 
       <div class="btn-grid">
@@ -673,7 +707,8 @@
               <div class="row"><span class="tag" data-ui="tag_secondo">Secondo</span><span class="price">€ 22</span></div>
             </div>
           </div>
-            <div class="card" data-icons="turkey">
+
+          <div class="card" data-icons="turkey">
             <img src="./img/piatti/cotoletta.jpeg" alt="Cotoletta gigante panata">
             <div class="content">
               <p class="name"><span>Cotoletta gigante panata</span></p>
@@ -918,6 +953,9 @@
             <div class="content">
               <p class="name"><span>Insalatona Borgo</span></p>
               <p class="desc" data-desc-key="ins_borgo_desc">Rucola, Salmone affumicato, Feta, Agrumi, Noci  4-7-8.</p>
+            content">
+              <p class="name"><span>Insalatona Borgo</span></p>
+              <p class="desc" data-desc-key="ins_borgo_desc">Rucola, Salmone affumicato, Feta, Agrumi, Noci  4-7-8.</p>
               <div class="row"><span class="tag" data-ui="tag_insalatona">Insalatona</span><span class="price">€ 13</span></div>
             </div>
           </div>
@@ -1008,7 +1046,7 @@
     </div>
   </div>
 
- <!-- ALLERGENI -->
+  <!-- ALLERGENI -->
   <section class="allergens-wrap" id="allergeni">
     <div class="allergens-box">
       <h3 data-ui="allergens_title">Allergeni</h3>
@@ -1076,6 +1114,63 @@
       `).join("");
     }
 
+    /* ✅ CREA META-LEFT (tag + pillole) SEMPRE, SENZA ROMPERE IL PREZZO */
+    function ensureMetaLeft(row){
+      const price = row.querySelector(".price");
+      if(!price) return null;
+
+      let left = row.querySelector(".meta-left");
+      if(left) return left;
+
+      left = document.createElement("span");
+      left.className = "meta-left";
+      row.insertBefore(left, price);
+
+      // sposta la tag dentro meta-left
+      const tag = row.querySelector(".tag");
+      if(tag) left.appendChild(tag);
+
+      return left;
+    }
+
+    /* ✅ Rigenera pillole allergeni:
+       - toglie pillole vecchie
+       - legge numeri in fondo alla descrizione (anche con spazi tipo "1-3-7 ." o "7 .")
+       - li rimuove dalla desc
+       - crea pillola "A 1-3-7" a sinistra del prezzo */
+    function refreshAllergenPills(){
+      // rimuovi pillole vecchie
+      document.querySelectorAll(".allergen-pill").forEach(p => p.remove());
+
+      document.querySelectorAll(".card").forEach(card => {
+        const desc = card.querySelector(".desc");
+        const row  = card.querySelector(".row");
+        if(!desc || !row) return;
+
+        const text = (desc.textContent || "").trim();
+
+        // match finale: numeri con trattini, con eventuali spazi e punto finale
+        // esempi presi da te: "1-3-7 ." / "7 ." / "1-4-14."
+        const m = text.match(/(\b\d{1,2}(?:\s*-\s*\d{1,2})*\b)\s*\.?\s*$/);
+        if(!m) return;
+
+        // normalizza "1 - 3 - 7" => "1-3-7"
+        const nums = m[1].replace(/\s*/g, "");
+
+        // pulisci descrizione
+        desc.textContent = text.replace(m[0], "").trim();
+
+        const left = ensureMetaLeft(row);
+        if(!left) return;
+
+        const pill = document.createElement("span");
+        pill.className = "allergen-pill";
+        pill.textContent = nums;
+
+        left.appendChild(pill);
+      });
+    }
+
     function applyLang(lang){
       document.documentElement.lang = lang;
 
@@ -1096,7 +1191,11 @@
       const txt = document.querySelector('[data-ui="allergens_text"]');
       if(t) t.textContent = a.title;
       if(txt) txt.textContent = a.text;
+
       renderAllergens(lang);
+
+      // ✅ DOPO che cambiano le descrizioni, ricrea sempre le pillole
+      refreshAllergenPills();
 
       localStorage.setItem("menu_lang", lang);
     }
@@ -1144,47 +1243,6 @@
       });
     }
 
-    /* ✅ CREA PILLOLA ALLERGENI E TOGLIE I NUMERI DALLA DESCRIZIONE */
-    function applyAllergenPills(){
-      document.querySelectorAll(".card").forEach(card => {
-        const desc = card.querySelector(".desc");
-        const row  = card.querySelector(".row");
-        if(!desc || !row) return;
-
-        // numeri alla fine tipo "1-4-14." / "1-4-7" / "7."
-        const text = desc.textContent.trim();
-        const m = text.match(/(\b\d{1,2}(?:-\d{1,2})*\b)\.?\s*$/);
-        if(!m) return;
-
-        const nums = m[1];
-
-        // elimina solo se è davvero "codice allergeni" (almeno 1 numero)
-        desc.textContent = text.replace(m[0], "").trim();
-
-        // evita doppioni
-        if(row.querySelector(".allergen-pill")) return;
-
-        const tag = row.querySelector(".tag");
-        const price = row.querySelector(".price");
-        if(!tag || !price) return;
-
-        // contenitore sinistro
-        let left = row.querySelector(".meta-left");
-        if(!left){
-          left = document.createElement("span");
-          left.className = "meta-left";
-          row.insertBefore(left, price);
-          left.appendChild(tag);
-        }
-
-        const pill = document.createElement("span");
-        pill.className = "allergen-pill";
-        pill.textContent = `A ${nums}`;
-
-        left.appendChild(pill);
-      });
-    }
-
     // ===== INIT =====
     window.addEventListener("DOMContentLoaded", () => {
       const select = document.getElementById("langSelect");
@@ -1203,10 +1261,7 @@
         openLightbox(img.getAttribute("src"), img.getAttribute("alt"));
       });
 
-      // ✅ prima creiamo le pillole allergeni (usando i testi attuali in IT)
-      applyAllergenPills();
-
-      // poi applichiamo lingua + allergeni box
+      // ✅ prima lingua (imposta testi)
       applyLang(saved);
     });
   </script>
