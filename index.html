@@ -1098,9 +1098,44 @@
 
   // ===== Traduzioni UI + Allergeni =====
   // ⚠️ QUI devi avere i tuoi contenuti veri (non vuoti).
-  const ALLERGENS = { /* ... LASCIA COME HAI ... */ };
-  const UI = { /* ... LASCIA COME HAI ... */ };
-  const DESC = { /* ... LASCIA COME HAI ... */ };
+const ALLERGENS = {
+  it: {
+    title: "Allergeni",
+    text:
+      "Ai sensi del Reg. (UE) n. 1169/2011, si avvisa la gentile clientela che negli alimenti e nelle bevande preparati in questo esercizio, possono essere contenuti ingredienti o coadiuvanti considerati allergeni. Le informazioni circa la presenza di sostanze o prodotti che provocano allergie o intolleranze sono disponibili rivolgendosi al personale in servizio e sul menù. Il cibo è una nostra grande passione: i nostri pasti sono realizzati con ingredienti di elevata qualità e facciamo del nostro meglio per soddisfare le esigenze dei clienti con allergie alimentari. Tuttavia, non possiamo garantire un ambiente completamente privo di allergeni e tracce di alcuni ingredienti potrebbero essere presenti nei nostri piatti.",
+    items: [
+      "Cereali contenenti glutine",
+      "Crostacei",
+      "Uova",
+      "Pesce",
+      "Arachidi",
+      "Soia",
+      "Latte",
+      "Frutta a guscio",
+      "Sedano",
+      "Senape",
+      "Semi di sesamo",
+      "Anidride solforosa e solfiti",
+      "Lupini",
+      "Molluschi"
+    ]
+  },
+  en: { title:"Allergens", text:"Ask our staff for allergen information.", items:[
+    "Cereals containing gluten","Crustaceans","Eggs","Fish","Peanuts","Soybeans","Milk","Tree nuts",
+    "Celery","Mustard","Sesame seeds","Sulphur dioxide and sulphites","Lupin","Molluscs"
+  ]},
+  es: { title:"Alérgenos", text:"Pregunte al personal por información sobre alérgenos.", items:[
+    "Cereales con gluten","Crustáceos","Huevos","Pescado","Cacahuetes","Soja","Leche","Frutos de cáscara",
+    "Apio","Mostaza","Sésamo","Dióxido de azufre y sulfitos","Altramuces","Moluscos"
+  ]},
+  fr: { title:"Allergènes", text:"Demandez au personnel les informations sur les allergènes.", items:[
+    "Céréales contenant du gluten","Crustacés","Œufs","Poisson","Arachides","Soja","Lait","Fruits à coque",
+    "Céleri","Moutarde","Graines de sésame","Anhydride sulfureux et sulfites","Lupin","Mollusques"
+  ]}
+};
+
+const UI = { it:{}, en:{}, es:{}, fr:{} };
+const DESC = { it:{}, en:{}, es:{}, fr:{} };
 
   function renderAllergens(lang){
     const a = ALLERGENS[lang] || ALLERGENS.it;
