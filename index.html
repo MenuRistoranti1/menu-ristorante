@@ -145,6 +145,8 @@
       overflow:hidden;
       box-shadow: 0 8px 24px rgba(0,0,0,.10);
       border: 1px solid rgba(0,0,0,0.06);
+        display: flex;
+  flex-direction: column;
     }
     .card img{
       width:100%;
@@ -153,7 +155,12 @@
       display:block;
       cursor: zoom-in;
     }
-    .content{ padding: 12px 12px 14px; }
+    .content{ 
+  padding: 12px 12px 14px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
 
     .name{
       font-weight: 900;
@@ -166,13 +173,20 @@
     }
     .name span{ min-width:0; }
 
-    .desc{ margin: 0 0 10px; opacity: .82; font-size: 14px; line-height: 1.35; }
+    .desc{
+  margin: 0 0 10px;
+  opacity: .82;
+  font-size: 14px;
+  line-height: 1.35;
+  flex: 1 1 auto;   /* ✅ la descrizione si prende lo spazio */
+}
 
-    .row{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-    }
+   .row{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  margin-top: auto;
+}
 
     /* ✅ contenitore a sinistra: tag + allergeni + icone */
     .meta-left{
@@ -948,17 +962,17 @@
             </div>
           </div>
 
-          <div class="card" data-icons="fish">
-            <img src="./img/piatti/insalataborgo.jpeg" alt="Insalatona Borgo">
-            <div class="content">
-              <p class="name"><span>Insalatona Borgo</span></p>
-              <p class="desc" data-desc-key="ins_borgo_desc">Rucola, Salmone affumicato, Feta, Agrumi, Noci  4-7-8.</p>
-            content">
-              <p class="name"><span>Insalatona Borgo</span></p>
-              <p class="desc" data-desc-key="ins_borgo_desc">Rucola, Salmone affumicato, Feta, Agrumi, Noci  4-7-8.</p>
-              <div class="row"><span class="tag" data-ui="tag_insalatona">Insalatona</span><span class="price">€ 13</span></div>
-            </div>
-          </div>
+    <div class="card" data-icons="fish">
+  <img src="./img/piatti/insalataborgo.jpeg" alt="Insalatona Borgo">
+  <div class="content">
+    <p class="name"><span>Insalatona Borgo</span></p>
+    <p class="desc" data-desc-key="ins_borgo_desc">Rucola, Salmone affumicato, Feta, Agrumi, Noci  4-7-8.</p>
+    <div class="row">
+      <span class="tag" data-ui="tag_insalatona">Insalatona</span>
+      <span class="price">€ 13</span>
+    </div>
+  </div>
+</div>
 
           <div class="card" data-icons="leaf">
             <img src="./img/piatti/instrasteve.jpeg" alt="Insalatona Trastevere">
