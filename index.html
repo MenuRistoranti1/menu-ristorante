@@ -2088,25 +2088,43 @@ function safeGet(key){
 function safeSet(key, val){
   try { localStorage.setItem(key, val); } catch(e){ /* ignore */ }
 }
-    function applyLang(lang){
-      document.documentElement.lang = lang;
+   function applyLang(lang){
+  document.documentElement.lang = lang;
 
-      // RTL per arabo
-      document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
+  // RTL per arabo
+  document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
 
-      const ui = UI[lang] || UI.it;
-      document.querySelectorAll("[data-ui]").forEach(el => {
-        const key = el.getAttribute("data-ui");
-        if (ui && ui[key]) el.textContent = ui[key];
-      });
+  // 1) UI (bottoni, titoli, ecc.)
+  const ui = UI[lang] || UI.it;
+  document.querySelectorAll("[data-ui]").forEach(el => {
+    const key = el.getAttribute("data-ui");
+    if (ui && ui[key]) el.textContent = ui[key];
+  });
 
-      const d = (DESC[lang] || DESC.it);
-      document.querySelectorAll(".desc[data-desc-key]").forEach(p => {
-        const key = p.getAttribute("data-desc-key");
-        if (d && d[key]) p.textContent = d[key];
-      });
+  // 2) Descrizioni piatti
+  const d = (DESC[lang] || DESC.it);
+  document.querySelectorAll(".desc[data-desc-key]").forEach(p => {
+    const key = p.getAttribute("data-desc-key");
+    if (d && d[key]) p.textContent = d[key];
+  });
 
-      renderAllergens(lang);
+  // 3) Box allergeni (titolo/testo/griglia)
+  const a = ALLERGENS[lang] || ALLERGENS.it;
+  const t = document.querySelector('[data-ui="allergens_title"]');
+  const txt = document.querySelector('[data-ui="allergens_text"]');
+  if(t && a && a.title) t.textContent = a.title;
+  if(txt && a && a.text) txt.textContent = a.text;
+
+  renderAllergens(lang);
+
+  // ✅ 4) IMPORTANTISSIMO:
+  // dopo la traduzione, riestrai i numeri allergeni dalle descrizioni
+  // e ricrea le pillole
+  extractAllergensToDataset();
+  buildAllergenPills();
+
+  safeSet("menu_lang", lang);
+}
 
       // ✅ dopo cambio lingua, ricrea pillole allergeni (da data-allergens)
       buildAllergenPills();
@@ -2175,7 +2193,7 @@ safeSet("menu_lang", lang);
         const desc = card.querySelector(".desc");
         if(!desc) return;
 
-        if(card.dataset.allergens && card.dataset.allergens.length) return;
+       // non bloccare: dopo applyLang serve riestrazione
 
         const text = (desc.textContent || "").trim();
         const m = text.match(/(\b\d{1,2}(?:-\d{1,2})*\b)\s*\.?\s*$/);
