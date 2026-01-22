@@ -10,8 +10,6 @@
       --glass: rgba(255,255,255,0.14);
       --glass2: rgba(255,255,255,0.22);
       --text: #fff;
-
-      /* prima era bianco pieno: ora glass come allergeni */
       --panel: rgba(255,255,255,0.22);
       --shadow: 0 14px 40px rgba(0,0,0,.28);
     }
@@ -43,56 +41,7 @@
       background: rgba(0,0,0,0.35);
       z-index:-1;
     }
-/* ===== ICONE VICINO AL NOME (non cliccabili) ===== */
-/* ===== ICONE (vicino alla pill Antipasto/Primo) ===== */
-.meta-left{
-  display:flex;
-  align-items:center;
-  gap: 8px;
-}
-    
-    .dish-icons{
-  display:inline-flex;
-  align-items:center;
-  gap: 6px;
-}
 
-.dish-icon-badge{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-  padding: 0;
-}
-
-.dish-icon,
-.dish-icon-img{
-  width: 16px;
-  height: 16px;
-  display:block;
-  pointer-events:none;
-}
-
-.dish-icon.leaf{ color:#2e7d32; }
-
-
-
-/* foglia SVG */
-.dish-icon{
-  width: 14px;
-  height: 14px;
-  display:block;
-  pointer-events:none;
-}
-.dish-icon.leaf{ color:#2e7d32; }
-
-/* icone PNG */
-.dish-icon-img, .dish-icon{
-  width: 18px;
-  height: 18px;
-}
     /* ===== HERO ===== */
     .hero{
       min-height: 100vh;
@@ -112,7 +61,6 @@
       backdrop-filter: blur(10px);
     }
 
-    /* ===== Language selector ===== */
     .topbar{
       display:flex;
       align-items:center;
@@ -133,8 +81,6 @@
       cursor:pointer;
     }
     .lang-select option{ color:#000; }
-
-    /* tolto il titolo Tonnarello dal box (è nello sfondo) */
     .hero-title{ display:none; }
 
     .hero-sub{
@@ -177,7 +123,6 @@
       padding: 18px 16px 40px;
     }
 
-    /* panel come allergeni (glass) ma senza pallini */
     .panel{
       background: var(--panel);
       border-radius: 22px;
@@ -210,80 +155,56 @@
       cursor: zoom-in;
     }
     .content{ padding: 12px 12px 14px; }
-.name{
-  font-weight: 900;
-  margin: 0 0 6px;
-  display:flex;
-  align-items:center;
-  justify-content:flex-start; /* <-- NON space-between */
-  gap: 8px;
-  flex-wrap: wrap;            /* <-- se il nome è lungo va a capo bene */
-}
 
-.name span{
-  flex: 0 1 auto;             /* <-- può restringersi ma non spinge le icone lontano */
-  min-width: 0;
-}
-
-/* icone subito dopo il titolo */
-.dish-icons{
-  display:inline-flex;
-  align-items:center;
-  gap: 6px;
-  flex: 0 0 auto;
-}
-
-/* contenitore “pill”/badge per ogni icona */
-.dish-icon-badge{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  padding: 0;
-  box-shadow: none;
-  width: auto;
-  height: auto;
-}
-
-/* SVG (foglia) */
-.dish-icon{
-  width: 18px;
-  height: 18px;
-  display:block;
-  pointer-events:none;
-}
-.dish-icon.leaf{ color:#2e7d32; }
-
-/* PNG (icone tue) */
-.dish-icon-img{
-  width: 20px;
-  height: 20px;
-  display:block;
-  object-fit: contain;
-  background: transparent;
-  border: 0;
-  padding: 0;
-  box-shadow: none;
-  user-select:none;
-  pointer-events:none; /* <-- NON cliccabile */
-}
-
+    .name{
+      font-weight: 900;
+      margin: 0 0 6px;
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .name span{ min-width:0; }
 
     .desc{ margin: 0 0 10px; opacity: .82; font-size: 14px; line-height: 1.35; }
-.row{
-  display:flex;
-  align-items:center;
-  gap: 10px;
-}
 
-.price{
-  font-weight: 900;
-  margin-left: auto;     /* ✅ spinge il prezzo a destra */
-  white-space: nowrap;   /* ✅ evita a capo */
-}
-    .tag{ font-size: 12px; padding: 4px 8px; border-radius: 999px; background:#f2f2f2; }
+    .row{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+    }
+
+    .meta-left{
+      display:flex;
+      align-items:center;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .tag{
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background:#f2f2f2;
+      white-space: nowrap;
+    }
+
+    /* ✅ pillola allergeni */
+    .allergen-pill{
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background:#f2f2f2;
+      opacity: .95;
+      white-space: nowrap;
+    }
+
+    .price{
+      font-weight: 900;
+      margin-left: auto;
+      white-space: nowrap;
+    }
 
     footer{
       color:#fff;
@@ -426,7 +347,6 @@
   <!-- HOME -->
   <section class="hero" id="home">
     <div class="hero-card">
-
       <div class="topbar">
         <select id="langSelect" class="lang-select" aria-label="Seleziona lingua">
           <option value="it">🇮🇹 IT</option>
@@ -436,7 +356,6 @@
         </select>
       </div>
 
-      <!-- (Tolto titolo "Tonnarello" perché già nello sfondo) -->
       <h1 class="hero-title">Tonnarello</h1>
 
       <p class="hero-sub" data-ui="hero_sub">Menu digitale • Tocca una categoria per vedere i piatti</p>
@@ -1084,7 +1003,7 @@
     </div>
   </div>
 
-  <!-- ALLERGENI -->
+ <!-- ALLERGENI -->
   <section class="allergens-wrap" id="allergeni">
     <div class="allergens-box">
       <h3 data-ui="allergens_title">Allergeni</h3>
@@ -1098,9 +1017,7 @@
         allergeni e tracce di alcuni ingredienti potrebbero essere presenti nei nostri posti.
       </p>
 
-      <div class="allergen-grid" id="allergenGrid">
-        <!-- riempita da JS (così si traduce bene) -->
-      </div>
+      <div class="allergen-grid" id="allergenGrid"></div>
     </div>
   </section>
 
@@ -1116,202 +1033,177 @@
     <div class="hint" id="lbHint" data-ui="lb_hint">Clicca fuori o premi ESC per chiudere</div>
   </div>
 
- <script>
-  // ===== Placeholder immagine (se file mancante) =====
-  const PLACEHOLDER_SRC =
-    'data:image/svg+xml;charset=utf-8,' +
-    encodeURIComponent(`
-      <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700">
-        <defs>
-          <linearGradient id="g" x1="0" x2="1">
-            <stop offset="0" stop-color="#f0f0f0"/>
-            <stop offset="1" stop-color="#e2e2e2"/>
-          </linearGradient>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#g)"/>
-        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
-              font-family="Arial" font-size="44" fill="#777">
-          Immagine non disponibile
-        </text>
-      </svg>
-    `);
+  <script>
+    // ===== Placeholder immagine (se file mancante) =====
+    const PLACEHOLDER_SRC =
+      'data:image/svg+xml;charset=utf-8,' +
+      encodeURIComponent(`
+        <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#f0f0f0"/>
+              <stop offset="1" stop-color="#e2e2e2"/>
+            </linearGradient>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#g)"/>
+          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+                font-family="Arial" font-size="44" fill="#777">
+            Immagine non disponibile
+          </text>
+        </svg>
+      `);
 
-  // ===== Traduzioni UI + Allergeni =====
-  const ALLERGENS = { /* ... LASCIA COME HAI ... */ };
-  const UI = { /* ... LASCIA COME HAI ... */ };
-  const DESC = { /* ... LASCIA COME HAI ... */ };
+    // ===== Traduzioni UI + Allergeni =====
+    const ALLERGENS = { /* ... LASCIA COME HAI ... */ };
+    const UI = { /* ... LASCIA COME HAI ... */ };
+    const DESC = { /* ... LASCIA COME HAI ... */ };
 
-  function renderAllergens(lang){
-    const a = ALLERGENS[lang] || ALLERGENS.it;
-    const grid = document.getElementById("allergenGrid");
-    if(!grid) return;
+    function renderAllergens(lang){
+      const a = ALLERGENS[lang] || ALLERGENS.it;
+      const grid = document.getElementById("allergenGrid");
+      if(!grid) return;
 
-    grid.innerHTML = a.items.map((name, idx) => `
-      <div class="allergen-item">
-        <div class="allergen-num">${idx+1}</div>
-        <div class="allergen-name">${name}</div>
-      </div>
-    `).join("");
-  }
-
-  function applyLang(lang){
-    document.documentElement.lang = lang;
-
-    const ui = UI[lang] || UI.it;
-    document.querySelectorAll("[data-ui]").forEach(el => {
-      const key = el.getAttribute("data-ui");
-      if (ui[key]) el.textContent = ui[key];
-    });
-
-    const d = (DESC[lang] || DESC.it);
-    document.querySelectorAll(".desc[data-desc-key]").forEach(p => {
-      const key = p.getAttribute("data-desc-key");
-      if (d && d[key]) p.textContent = d[key];
-    });
-
-    const a = ALLERGENS[lang] || ALLERGENS.it;
-    const t = document.querySelector('[data-ui="allergens_title"]');
-    const txt = document.querySelector('[data-ui="allergens_text"]');
-    if(t) t.textContent = a.title;
-    if(txt) txt.textContent = a.text;
-    renderAllergens(lang);
-
-    localStorage.setItem("menu_lang", lang);
-  }
-
-  // ===== FALLBACK immagini mancanti =====
-  document.querySelectorAll(".card img").forEach(img => {
-    img.addEventListener("error", () => {
-      if (img.dataset.fallbackApplied) return;
-      img.dataset.fallbackApplied = "1";
-      img.src = PLACEHOLDER_SRC;
-      img.style.objectFit = "contain";
-      img.style.background = "#fff";
-      img.style.cursor = "default";
-    });
-  });
-
-  // ===== LIGHTBOX =====
-  const lb = document.getElementById("lightbox");
-  const lbImg = document.getElementById("lbImg");
-  const lbClose = document.getElementById("lbClose");
-
-  function openLightbox(src, alt){
-    if (src && src.startsWith("data:image/svg+xml")) return;
-    lbImg.src = src;
-    lbImg.alt = alt || "";
-    lb.classList.add("open");
-    lb.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
-  function closeLightbox(){
-    lb.classList.remove("open");
-    lb.setAttribute("aria-hidden", "true");
-    lbImg.src = "";
-    document.body.style.overflow = "";
-  }
-
-  lbClose.addEventListener("click", closeLightbox);
-  lb.addEventListener("click", (e) => { if(e.target === lb) closeLightbox(); });
-  document.addEventListener("keydown", (e) => { if(e.key === "Escape") closeLightbox(); });
-
-  /* ====== ICONS CONFIG (usa la tua cartella /icons e i tuoi nomi file) ====== */
-  const ICONS = {
-    leaf: { type:"svg", html: `
-      <svg class="dish-icon leaf" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M21 3s-6.5.5-11 5-5 11-5 11 6.5-.5 11-5 5-11 5-11Zm-9.4 13.4c-1.2.9-2.4 1.5-3.3 1.9.4-.9 1-2.1 1.9-3.3 1.7-2.3 4.3-4.7 8.1-6.5-1.8 3.8-4.2 6.4-6.7 7.9Z"/>
-      </svg>
-    `},
-    fish:      { type:"img", src:"./icons/pesce.png" },
-    pig:       { type:"img", src:"./icons/maiale.png" },
-    cow:       { type:"img", src:"./icons/manzo.png" },
-    chicken:   { type:"img", src:"./icons/pollo.png" },
-    turkey:    { type:"img", src:"./icons/tacchino.png" },
-    squid:     { type:"img", src:"./icons/calamaro.png" },
-    artichoke: { type:"img", src:"./icons/carciofo.png" }
-  };
-
-function applyDishIcons(){
-  document.querySelectorAll(".card[data-icons]").forEach(card => {
-    const list = (card.dataset.icons || "")
-      .split(",").map(s => s.trim()).filter(Boolean);
-    if(!list.length) return;
-
-    const row = card.querySelector(".row");
-    if(!row) return;
-
-    const tag = row.querySelector(".tag");
-    const price = row.querySelector(".price");
-    if(!tag || !price) return;
-
-    // evita duplicati
-    if(row.querySelector(".dish-icons")) return;
-
-    // ✅ crea (o recupera) il contenitore sinistro
-    let left = row.querySelector(".meta-left");
-    if(!left){
-      left = document.createElement("span");
-      left.className = "meta-left";
-      row.insertBefore(left, price);   // left prima del prezzo
-      left.appendChild(tag);           // sposta la pillola dentro left
+      grid.innerHTML = a.items.map((name, idx) => `
+        <div class="allergen-item">
+          <div class="allergen-num">${idx+1}</div>
+          <div class="allergen-name">${name}</div>
+        </div>
+      `).join("");
     }
 
-    const wrap = document.createElement("span");
-    wrap.className = "dish-icons";
+    function applyLang(lang){
+      document.documentElement.lang = lang;
 
-    list.forEach(key => {
-      const icon = ICONS[key];
-      if(!icon) return;
+      const ui = UI[lang] || UI.it;
+      document.querySelectorAll("[data-ui]").forEach(el => {
+        const key = el.getAttribute("data-ui");
+        if (ui[key]) el.textContent = ui[key];
+      });
 
-      const badge = document.createElement("span");
-      badge.className = "dish-icon-badge";
+      const d = (DESC[lang] || DESC.it);
+      document.querySelectorAll(".desc[data-desc-key]").forEach(p => {
+        const key = p.getAttribute("data-desc-key");
+        if (d && d[key]) p.textContent = d[key];
+      });
 
-      if(icon.type === "svg"){
-        badge.innerHTML = icon.html;
-      } else {
-        const img = document.createElement("img");
-        img.className = "dish-icon-img";
-        img.src = icon.src;
-        img.alt = key;
-        img.draggable = false;
-        badge.appendChild(img);
+      const a = ALLERGENS[lang] || ALLERGENS.it;
+      const t = document.querySelector('[data-ui="allergens_title"]');
+      const txt = document.querySelector('[data-ui="allergens_text"]');
+      if(t) t.textContent = a.title;
+      if(txt) txt.textContent = a.text;
+      renderAllergens(lang);
+
+      localStorage.setItem("menu_lang", lang);
+    }
+
+    // ===== FALLBACK immagini mancanti =====
+    document.querySelectorAll(".card img").forEach(img => {
+      img.addEventListener("error", () => {
+        if (img.dataset.fallbackApplied) return;
+        img.dataset.fallbackApplied = "1";
+        img.src = PLACEHOLDER_SRC;
+        img.style.objectFit = "contain";
+        img.style.background = "#fff";
+        img.style.cursor = "default";
+      });
+    });
+
+    // ===== LIGHTBOX =====
+    const lb = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lbImg");
+    const lbClose = document.getElementById("lbClose");
+
+    function openLightbox(src, alt){
+      if (src && src.startsWith("data:image/svg+xml")) return;
+      lbImg.src = src;
+      lbImg.alt = alt || "";
+      lb.classList.add("open");
+      lb.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+    function closeLightbox(){
+      lb.classList.remove("open");
+      lb.setAttribute("aria-hidden", "true");
+      lbImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    lbClose.addEventListener("click", closeLightbox);
+    lb.addEventListener("click", (e) => { if(e.target === lb) closeLightbox(); });
+    document.addEventListener("keydown", (e) => { if(e.key === "Escape") closeLightbox(); });
+
+    function markDishPhotos(){
+      document.querySelectorAll(".card").forEach(card => {
+        const topImg = card.querySelector(":scope > img");
+        if(topImg) topImg.classList.add("dish-photo");
+      });
+    }
+
+    /* ✅ CREA PILLOLA ALLERGENI E TOGLIE I NUMERI DALLA DESCRIZIONE */
+    function applyAllergenPills(){
+      document.querySelectorAll(".card").forEach(card => {
+        const desc = card.querySelector(".desc");
+        const row  = card.querySelector(".row");
+        if(!desc || !row) return;
+
+        // numeri alla fine tipo "1-4-14." / "1-4-7" / "7."
+        const text = desc.textContent.trim();
+        const m = text.match(/(\b\d{1,2}(?:-\d{1,2})*\b)\.?\s*$/);
+        if(!m) return;
+
+        const nums = m[1];
+
+        // elimina solo se è davvero "codice allergeni" (almeno 1 numero)
+        desc.textContent = text.replace(m[0], "").trim();
+
+        // evita doppioni
+        if(row.querySelector(".allergen-pill")) return;
+
+        const tag = row.querySelector(".tag");
+        const price = row.querySelector(".price");
+        if(!tag || !price) return;
+
+        // contenitore sinistro
+        let left = row.querySelector(".meta-left");
+        if(!left){
+          left = document.createElement("span");
+          left.className = "meta-left";
+          row.insertBefore(left, price);
+          left.appendChild(tag);
+        }
+
+        const pill = document.createElement("span");
+        pill.className = "allergen-pill";
+        pill.textContent = `Allergeni ${nums}`;
+
+        left.appendChild(pill);
+      });
+    }
+
+    // ===== INIT =====
+    window.addEventListener("DOMContentLoaded", () => {
+      const select = document.getElementById("langSelect");
+      const saved = localStorage.getItem("menu_lang") || "it";
+
+      if (select){
+        select.value = saved;
+        select.addEventListener("change", e => applyLang(e.target.value));
       }
-      wrap.appendChild(badge);
+
+      markDishPhotos();
+
+      document.addEventListener("click", (e) => {
+        const img = e.target.closest("img.dish-photo");
+        if(!img) return;
+        openLightbox(img.getAttribute("src"), img.getAttribute("alt"));
+      });
+
+      // ✅ prima creiamo le pillole allergeni (usando i testi attuali in IT)
+      applyAllergenPills();
+
+      // poi applichiamo lingua + allergeni box
+      applyLang(saved);
     });
-
-    // ✅ icone accanto alla pillola, sempre a sinistra
-    left.appendChild(wrap);
-  });
-}
-
-  function markDishPhotos(){
-    document.querySelectorAll(".card").forEach(card => {
-      const topImg = card.querySelector(":scope > img");
-      if(topImg) topImg.classList.add("dish-photo");
-    });
-  }
-
-  // ===== INIT =====
-  window.addEventListener("DOMContentLoaded", () => {
-    const select = document.getElementById("langSelect");
-    const saved = localStorage.getItem("menu_lang") || "it";
-
-    if (select){
-      select.value = saved;
-      select.addEventListener("change", e => applyLang(e.target.value));
-    }
-
-    markDishPhotos();
-
-    document.addEventListener("click", (e) => {
-      const img = e.target.closest("img.dish-photo");
-      if(!img) return;
-      openLightbox(img.getAttribute("src"), img.getAttribute("alt"));
-    });
-
-    applyDishIcons();
-    applyLang(saved);
-  });
-</script>
+  </script>
 </body>
 </html>
