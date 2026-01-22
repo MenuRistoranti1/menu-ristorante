@@ -2226,12 +2226,11 @@ safeSet("menu_lang", lang);
     }
 
     // ===== INIT =====
-  window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", () => {
   try {
     const select = document.getElementById("langSelect");
     const saved = safeGet("menu_lang") || "it";
 
-    // ✅ aggiungi lingue al select
     if (select) {
       const ensureOpt = (val, label) => {
         if ([...select.options].some(o => o.value === val)) return;
@@ -2250,21 +2249,23 @@ safeSet("menu_lang", lang);
 
       const onLang = (e) => applyLang(e.target.value);
       select.addEventListener("change", onLang);
-      select.addEventListener("input", onLang); // ✅ mobile
+      select.addEventListener("input", onLang); // iPhone
     }
 
-    // ✅ IMPORTANTISSIMO: niente :scope (Safari iOS)
     markDishPhotos();
 
-    // ✅ click lightbox
     document.addEventListener("click", (e) => {
       const img = e.target.closest("img.dish-photo");
-      if(!img) return;
+      if (!img) return;
       openLightbox(img.getAttribute("src"), img.getAttribute("alt"));
     });
 
-    // ✅ crea dataset allergeni + poi lingua (che ricrea pillole e griglia)
     extractAllergensToDataset();
+
+    if (typeof lockBottomRow === "function") {
+      lockBottomRow();
+    }
+
     applyLang(saved);
 
   } catch (err) {
@@ -2279,10 +2280,13 @@ function markDishPhotos(){
   });
 }
 
-      extractAllergensToDataset();
-      lockBottomRow();          // ✅ prezzo/tag sempre in basso
-      applyLang(saved);
-    });
+   extractAllergensToDataset();
+
+if (typeof lockBottomRow === "function") {
+  lockBottomRow(); // ✅ prezzo/tag sempre in basso
+}
+
+applyLang(saved);
   </script>
 </body>
 </html>
