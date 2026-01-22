@@ -194,27 +194,27 @@
       cursor: zoom-in;
     }
     .content{ padding: 12px 12px 14px; }
-  .name{
+.name{
   font-weight: 900;
   margin: 0 0 6px;
   display:flex;
   align-items:center;
-  justify-content: space-between;
-  gap: 10px;
+  justify-content:flex-start; /* <-- NON space-between */
+  gap: 8px;
+  flex-wrap: wrap;            /* <-- se il nome è lungo va a capo bene */
 }
 
 .name span{
-  flex: 1;
+  flex: 0 1 auto;             /* <-- può restringersi ma non spinge le icone lontano */
+  min-width: 0;
 }
 
-    /* icone vicino al nome */
+/* icone subito dopo il titolo */
 .dish-icons{
   display:inline-flex;
   align-items:center;
   gap: 6px;
   flex: 0 0 auto;
-  background: transparent;
-  padding: 0;
 }
 
 /* contenitore “pill”/badge per ogni icona */
