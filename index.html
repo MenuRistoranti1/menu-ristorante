@@ -79,6 +79,7 @@
       padding: 10px 14px;
       font-weight: 800;
       cursor:pointer;
+      outline: none;
     }
     .lang-select option{ color:#000; }
     .hero-title{ display:none; }
@@ -140,15 +141,15 @@
       gap: 14px;
     }
 
-    /* ✅ CARD: layout a colonna e contenuto elastico per fissare la row in basso */
+    /* CARD */
     .card{
       background: rgba(255,255,255,0.92);
       border-radius: 14px;
       overflow:hidden;
       box-shadow: 0 8px 24px rgba(0,0,0,.10);
       border: 1px solid rgba(0,0,0,0.06);
-      display:flex;              /* ✅ */
-      flex-direction: column;    /* ✅ */
+      display:flex;
+      flex-direction: column;
     }
     .card img{
       width:100%;
@@ -159,13 +160,12 @@
       flex: 0 0 auto;
     }
 
-    /* ✅ content elastico */
     .content{
       padding: 12px 12px 14px;
-      display:flex;            /* ✅ */
-      flex-direction: column;  /* ✅ */
-      flex: 1 1 auto;          /* ✅ */
-      min-height: 150px;       /* ✅ (aiuta l’allineamento) */
+      display:flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+      min-height: 150px;
     }
 
     .name{
@@ -186,21 +186,19 @@
       line-height: 1.35;
     }
 
-    /* ✅ riga sempre in basso */
     .row{
       display:flex;
       align-items:center;
       gap: 10px;
-      margin-top: auto; /* ✅ */
+      margin-top: auto;
     }
 
-    /* ✅ contenitore a sinistra: tag + allergeni + icone */
     .meta-left{
       display:flex;
       align-items:center;
       gap: 8px;
       min-width: 0;
-      flex: 1 1 auto;   /* ✅ può restringersi, così il prezzo resta sempre visibile */
+      flex: 1 1 auto;
     }
 
     .tag{
@@ -212,29 +210,22 @@
       flex: 0 0 auto;
     }
 
-    /* ✅ pillola allergeni (piccola) */
-.allergen-pill{
-  font-size: 10.5px;
-  padding: 3px 7px;
-  border-radius: 999px;
-
-  background: rgba(255,255,255,0.70);
-  color:#111;
-
-  /* puntinato più fine e soft */
-  border: 1.6px dotted rgba(190,70,90,0.70);
-
-  /* micro bordo esterno leggero (fa “staccare” sul bianco) */
-  outline: 1px solid rgba(0,0,0,0.06);
-  outline-offset: 2px;
-
-  white-space: nowrap;
-  flex: 0 0 auto;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  max-width: 92px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+    .allergen-pill{
+      font-size: 10.5px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.70);
+      color:#111;
+      border: 1.6px dotted rgba(190,70,90,0.70);
+      outline: 1px solid rgba(0,0,0,0.06);
+      outline-offset: 2px;
+      white-space: nowrap;
+      flex: 0 0 auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      max-width: 92px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
     .price{
       font-weight: 900;
@@ -389,7 +380,7 @@
           <option value="it">🇮🇹 IT</option>
           <option value="en">🇬🇧 EN</option>
           <option value="es">🇪🇸 ES</option>
-           <option value="pt">🇵🇹 PT</option>
+          <option value="pt">🇵🇹 PT</option>
           <option value="fr">🇫🇷 FR</option>
           <option value="ko">🇰🇷 KO</option>
           <option value="ja">🇯🇵 JA</option>
@@ -424,8 +415,7 @@
       <section id="antipasti" class="section">
         <h2 class="section-title" data-ui="sec_antipasti">Antipasti</h2>
         <div class="grid">
-
-          <div class="card" data-icons="leaf,artichoke">
+          <div class="card">
             <img src="./img/piatti/carciofoallagiudia.jpeg" alt="Carciofo alla Giudia">
             <div class="content">
               <p class="name"><span>Carciofo alla Giudia</span></p>
@@ -434,7 +424,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="leaf">
+          <div class="card">
             <img src="./img/piatti/patatecacioepep.jpeg" alt="Patate Cacio e Pepe">
             <div class="content">
               <p class="name"><span>Patate Cacio e Pepe</span></p>
@@ -443,7 +433,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="fish,pig">
+          <div class="card">
             <img src="./img/piatti/trisbruschette.png" alt="Tris di Bruschette">
             <div class="content">
               <p class="name"><span>Tris di Bruschette</span></p>
@@ -452,7 +442,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="cow,pig">
+          <div class="card">
             <img src="./img/piatti/cestinosuppli.jpeg" alt="Cestino Supplì">
             <div class="content">
               <p class="name"><span>Cestino Supplì</span></p>
@@ -461,7 +451,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="squid">
+          <div class="card">
             <img src="./img/piatti/cartocciocalamari.jpeg" alt="Cartoccio di Calamari">
             <div class="content">
               <p class="name"><span>Cartoccio di Calamari</span></p>
@@ -470,7 +460,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="cow,pig">
+          <div class="card">
             <img src="./img/piatti/taglieregenuinosalumieformaggi.jpeg" alt="Tagliere genuino di Salumi e Formaggi">
             <div class="content">
               <p class="name"><span>Tagliere genuino di Salumi e Formaggi</span></p>
@@ -479,7 +469,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="leaf">
+          <div class="card">
             <img src="./img/piatti/caprese.jpeg" alt="Caprese">
             <div class="content">
               <p class="name"><span>Caprese</span></p>
@@ -488,7 +478,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="pig">
+          <div class="card">
             <img src="./img/piatti/prosciuttoebufala.jpeg" alt="Prosciutto Crudo e Mozzarella di bufala">
             <div class="content">
               <p class="name"><span>Prosciutto Crudo e Mozz. di bufala</span></p>
@@ -497,7 +487,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="leaf">
+          <div class="card">
             <img src="./img/piatti/focaccia.jpeg" alt="Focaccia calda, Olio EVO e Rosmarino">
             <div class="content">
               <p class="name"><span>Focaccia calda, Olio EVO e Rosmarino</span></p>
@@ -506,7 +496,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="leaf">
+          <div class="card">
             <img src="./img/piatti/salsamarinara.jpeg" alt="Extra Salsa Marinara">
             <div class="content">
               <p class="name"><span>Extra Salsa Marinara</span></p>
@@ -523,7 +513,7 @@
         <h2 class="section-title" data-ui="sec_primi">Primi</h2>
         <div class="grid">
 
-          <div class="card" data-icons="leaf">
+          <div class="card">
             <img src="./img/piatti/cacioepep.jpeg" alt="Tonnarello Cacio e Pepe">
             <div class="content">
               <p class="name"><span>Tonnarello Cacio e Pepe</span></p>
@@ -532,7 +522,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="pig">
+          <div class="card">
             <img src="./img/piatti/tonnarellicarbonara.jpeg" alt="Tonnarelli Carbonara">
             <div class="content">
               <p class="name"><span>Tonnarelli Carbonara</span></p>
@@ -541,7 +531,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="leaf">
+          <div class="card">
             <img src="./img/piatti/tonnarellononnanadia.jpeg" alt="Tonnarello Nonna Nadia">
             <div class="content">
               <p class="name"><span>Tonnarello “Nonna Nadia”</span></p>
@@ -550,7 +540,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="pig">
+          <div class="card">
             <img src="./img/piatti/tonnarelliamatriciana.jpeg" alt="Tonnarelli Amatriciana">
             <div class="content">
               <p class="name"><span>Tonnarelli Amatriciana</span></p>
@@ -559,7 +549,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="pig">
+          <div class="card">
             <img src="./img/piatti/tonnarellogricia.jpeg" alt="Tonnarello Gricia">
             <div class="content">
               <p class="name"><span>Tonnarello Gricia</span></p>
@@ -568,7 +558,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="cow">
+          <div class="card">
             <img src="./img/piatti/tonnarellialsugodipolpette.jpeg" alt="Tonnarello al sugo di Polpette">
             <div class="content">
               <p class="name"><span>Tonnarello al sugo di Polpette</span></p>
@@ -577,7 +567,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="cow">
+          <div class="card">
             <img src="./img/piatti/lasagna.jpeg" alt="Lasagna ragù">
             <div class="content">
               <p class="name"><span>Lasagna ragù</span></p>
@@ -586,7 +576,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="leaf">
+          <div class="card">
             <img src="./img/piatti/rigatonialpestoconpinoliepomodorini.jpeg" alt="Rigatoni al pesto con pinoli e pomodorini">
             <div class="content">
               <p class="name"><span>Rigatoni al pesto con pinoli e pomodorini</span></p>
@@ -603,7 +593,7 @@
         <h2 class="section-title" data-ui="sec_polpette">Polpette per tutti</h2>
         <div class="grid">
 
-          <div class="card" data-icons="fish">
+          <div class="card">
             <img src="./img/piatti/polpettebaccala.jpeg" alt="Polpette di baccalà">
             <div class="content">
               <p class="name"><span>Polpette di baccalà</span></p>
@@ -612,7 +602,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="cow">
+          <div class="card">
             <img src="./img/piatti/polpettecacioepepe.jpeg" alt="Polpette cacio e pepe">
             <div class="content">
               <p class="name"><span>Polpette cacio e pepe</span></p>
@@ -621,7 +611,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="cow">
+          <div class="card">
             <img src="./img/piatti/polpettesugo.jpeg" alt="Polpette al sugo">
             <div class="content">
               <p class="name"><span>Polpette al sugo</span></p>
@@ -630,7 +620,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="cow">
+          <div class="card">
             <img src="./img/piatti/polpettevaccinara.jpeg" alt="Polpette alla Vaccinara">
             <div class="content">
               <p class="name"><span>Polpette alla Vaccinara</span></p>
@@ -639,7 +629,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="leaf">
+          <div class="card">
             <img src="./img/piatti/polpettemelanzane.jpeg" alt="Polpette di Melanzane e Patate">
             <div class="content">
               <p class="name"><span>Polpette di Melanzane e Patate</span></p>
@@ -656,7 +646,7 @@
         <h2 class="section-title" data-ui="sec_secondi">Secondi</h2>
         <div class="grid">
 
-          <div class="card" data-icons="pig">
+          <div class="card">
             <img src="./img/piatti/saltimbocca.jpeg" alt="Saltimbocca alla romana">
             <div class="content">
               <p class="name"><span>Saltimbocca alla romana</span></p>
@@ -665,7 +655,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="cow">
+          <div class="card">
             <img src="./img/piatti/tagliatadimanzo.jpeg" alt="Tagliata di manzo rucola">
             <div class="content">
               <p class="name"><span>Tagliata di Manzo</span></p>
@@ -674,7 +664,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="cow">
+          <div class="card">
             <img src="./img/piatti/straccetti.jpeg" alt="Straccetti al vino rucola">
             <div class="content">
               <p class="name"><span>Straccetti al vino </span></p>
@@ -683,7 +673,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="cow">
+          <div class="card">
             <img src="./img/piatti/codaallavaccinara.jpeg" alt="Coda alla vaccinara">
             <div class="content">
               <p class="name"><span>Coda alla vaccinara</span></p>
@@ -692,7 +682,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="chicken">
+          <div class="card">
             <img src="./img/piatti/polloallaromana.jpeg" alt="Pollo alla romana con peperoni">
             <div class="content">
               <p class="name"><span>Pollo alla romana con peperoni</span></p>
@@ -701,7 +691,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="lamb">
+          <div class="card">
             <img src="./img/piatti/abbacchio.jpeg" alt="Abbacchio al forno">
             <div class="content">
               <p class="name"><span>Abbacchio al forno</span></p>
@@ -710,7 +700,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="turkey">
+          <div class="card">
             <img src="./img/piatti/cotoletta.jpeg" alt="Cotoletta gigante panata">
             <div class="content">
               <p class="name"><span>Cotoletta gigante panata</span></p>
@@ -727,7 +717,7 @@
         <h2 class="section-title" data-ui="sec_contorni">Contorni</h2>
         <div class="grid">
 
-          <div class="card" data-icons="leaf">
+          <div class="card">
             <img src="./img/piatti/cicoriaripassata.jpeg" alt="Cicoria ripassata">
             <div class="content">
               <p class="name"><span>Cicoria ripassata</span></p>
@@ -736,7 +726,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="leaf">
+          <div class="card">
             <img src="./img/piatti/insalatapomodori.jpeg" alt="Insalata con Pomodori">
             <div class="content">
               <p class="name"><span>Insalata con Pomodori</span></p>
@@ -745,7 +735,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="leaf">
+          <div class="card">
             <img src="./img/piatti/patatealforno.jpeg" alt="Patate al forno">
             <div class="content">
               <p class="name"><span>Patate al forno</span></p>
@@ -754,7 +744,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="leaf">
+          <div class="card">
             <img src="./img/piatti/patatefritte.jpeg" alt="Patate fritte">
             <div class="content">
               <p class="name"><span>Patate fritte</span></p>
@@ -763,7 +753,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="leaf">
+          <div class="card">
             <img src="./img/piatti/pure.jpeg" alt="Purè di patate">
             <div class="content">
               <p class="name"><span>Purè di patate</span></p>
@@ -780,7 +770,7 @@
         <h2 class="section-title" data-ui="sec_pinse">Pinse</h2>
         <div class="grid">
 
-          <div class="card" data-icons="leaf">
+          <div class="card">
             <img src="./img/piatti/margherita.jpeg" alt="Pinsa Margherita">
             <div class="content">
               <p class="name"><span>Pinsa Margherita</span></p>
@@ -789,7 +779,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="leaf">
+          <div class="card">
             <img src="./img/piatti/funghi.jpeg" alt="Pinsa Funghi">
             <div class="content">
               <p class="name"><span>Pinsa Funghi</span></p>
@@ -798,7 +788,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="leaf">
+          <div class="card">
             <img src="./img/piatti/pinsacacioepepe.jpeg" alt="Pinsa Cacio e Pepe">
             <div class="content">
               <p class="name"><span>Pinsa Cacio e Pepe</span></p>
@@ -807,7 +797,7 @@
             </div>
           </div>
 
-          <div class="card" data-icons="leaf">
+          <div class="card">
             <img src="./img/piatti/contadina.jpeg" alt="Pinsa Contadina">
             <div class="content">
               <p class="name"><span>Pinsa Contadina</span></p>
@@ -816,111 +806,147 @@
             </div>
           </div>
 
-          <div class="card" data-icons="fish">
+          <div class="card">
             <img src="./img/piatti/pinsanapoli.jpeg" alt="Pinsa Napoli">
             <div class="content">
               <p class="name"><span>Pinsa Napoli</span></p>
               <p class="desc" data-desc-key="pinsa_napoli_desc">Pomodoro, mozzarella, alici e origano  1-4-6-7.</p>
-              <div class="row"><span class="tag" data-ui="tag_pinsa">Pinsa</span><span class="price">€ 11,5</span></div>
+              <div class="row">
+                <span class="tag" data-ui="tag_pinsa">Pinsa</span>
+                <span class="price">€ 11,5</span>
+              </div>
             </div>
           </div>
 
-          <div class="card" data-icons="pig">
+          <div class="card">
             <img src="./img/piatti/parma.jpeg" alt="Pinsa Parma">
             <div class="content">
               <p class="name"><span>Pinsa Parma</span></p>
               <p class="desc" data-desc-key="pinsa_parma_desc">Pomodoro, mozzarella e prosciutto crudo  1-6-7.</p>
-              <div class="row"><span class="tag" data-ui="tag_pinsa">Pinsa</span><span class="price">€ 15</span></div>
+              <div class="row">
+                <span class="tag" data-ui="tag_pinsa">Pinsa</span>
+                <span class="price">€ 15</span>
+              </div>
             </div>
           </div>
 
-          <div class="card" data-icons="cow">
+          <div class="card">
             <img src="./img/piatti/quattroformaggi.jpeg" alt="Pinsa Quattro Formaggi Bianca">
             <div class="content">
               <p class="name"><span>Pinsa Quattro Formaggi Bianca</span></p>
               <p class="desc" data-desc-key="pinsa_quattroformaggi_desc">Formaggio Erborinato, Mozzarella, Provola, Brie  1-6-7.</p>
-              <div class="row"><span class="tag" data-ui="tag_pinsa">Pinsa</span><span class="price">€ 13</span></div>
+              <div class="row">
+                <span class="tag" data-ui="tag_pinsa">Pinsa</span>
+                <span class="price">€ 13</span>
+              </div>
             </div>
           </div>
 
-          <div class="card" data-icons="pig">
+          <div class="card">
             <img src="./img/piatti/diavola.jpeg" alt="Pinsa Diavola">
             <div class="content">
               <p class="name"><span>Pinsa Diavola</span></p>
               <p class="desc" data-desc-key="pinsa_diavola_desc">Pomodoro, Mozzarella e Salame piccante  1-6-7.</p>
-              <div class="row"><span class="tag" data-ui="tag_pinsa">Pinsa</span><span class="price">€ 12,5</span></div>
+              <div class="row">
+                <span class="tag" data-ui="tag_pinsa">Pinsa</span>
+                <span class="price">€ 12,5</span>
+              </div>
             </div>
           </div>
 
-          <div class="card" data-icons="pig">
+          <div class="card">
             <img src="./img/piatti/capricciosa.jpeg" alt="Pinsa Capricciosa">
             <div class="content">
               <p class="name"><span>Pinsa Capricciosa</span></p>
               <p class="desc" data-desc-key="pinsa_capricciosa_desc">Pomodoro, Mozzarella, Prosciutto cotto, Uovo, Olive, Carciofini e Funghi  1-3-6-7.</p>
-              <div class="row"><span class="tag" data-ui="tag_pinsa">Pinsa</span><span class="price">€ 16</span></div>
+              <div class="row">
+                <span class="tag" data-ui="tag_pinsa">Pinsa</span>
+                <span class="price">€ 16</span>
+              </div>
             </div>
           </div>
 
-          <div class="card" data-icons="pig">
+          <div class="card">
             <img src="./img/piatti/boscaiola.jpeg" alt="Pinsa Boscaiola">
             <div class="content">
               <p class="name"><span>Pinsa Boscaiola</span></p>
               <p class="desc" data-desc-key="pinsa_boscaiola_desc">Mozzarella, funghi e Salsiccia  1-6-7.</p>
-              <div class="row"><span class="tag" data-ui="tag_pinsa">Pinsa</span><span class="price">€ 13</span></div>
+              <div class="row">
+                <span class="tag" data-ui="tag_pinsa">Pinsa</span>
+                <span class="price">€ 13</span>
+              </div>
             </div>
           </div>
 
-          <div class="card" data-icons="pig">
+          <div class="card">
             <img src="./img/piatti/patateesalsiccie.jpeg" alt="Pinsa Salsiccia e Patate">
             <div class="content">
               <p class="name"><span>Pinsa Salsiccia e Patate</span></p>
               <p class="desc" data-desc-key="pinsa_salsicciaepatate_desc">Mozzarella, Salsiccia, Patate al forno e Rosmarino  1-6-7.</p>
-              <div class="row"><span class="tag" data-ui="tag_pinsa">Pinsa</span><span class="price">€ 12,5</span></div>
+              <div class="row">
+                <span class="tag" data-ui="tag_pinsa">Pinsa</span>
+                <span class="price">€ 12,5</span>
+              </div>
             </div>
           </div>
 
-          <div class="card" data-icons="fish">
+          <div class="card">
             <img src="./img/piatti/tonno.jpeg" alt="Pinsa Tonno">
             <div class="content">
               <p class="name"><span>Pinsa Tonno</span></p>
               <p class="desc" data-desc-key="pinsa_tonno_desc">Pomodoro, Mozzarella, Tonno, Cipolla e Capperi  1-4-6-7.</p>
-              <div class="row"><span class="tag" data-ui="tag_pinsa">Pinsa</span><span class="price">€ 14,5</span></div>
+              <div class="row">
+                <span class="tag" data-ui="tag_pinsa">Pinsa</span>
+                <span class="price">€ 14,5</span>
+              </div>
             </div>
           </div>
 
-          <div class="card" data-icons="pig">
+          <div class="card">
             <img src="./img/piatti/rustica.jpeg" alt="Pinsa Rustica">
             <div class="content">
               <p class="name"><span>Pinsa Rustica</span></p>
               <p class="desc" data-desc-key="pinsa_rustica_desc">Pomodoro, Mozzarella, Salsiccia e Cicoria ripassata  1-6-7.</p>
-              <div class="row"><span class="tag" data-ui="tag_pinsa">Pinsa</span><span class="price">€ 14</span></div>
+              <div class="row">
+                <span class="tag" data-ui="tag_pinsa">Pinsa</span>
+                <span class="price">€ 14</span>
+              </div>
             </div>
           </div>
 
-          <div class="card" data-icons="cow">
+          <div class="card">
             <img src="./img/piatti/bufalina.jpeg" alt="Pinsa Bufalina (base bianca)">
             <div class="content">
               <p class="name"><span>Pinsa Bufalina “base bianca”</span></p>
               <p class="desc" data-desc-key="pinsa_bufalina_desc">Pomodorini freschi, Mozzarella, Mozzarella di L.di Bufala e Basilico  1-6-7.</p>
-              <div class="row"><span class="tag" data-ui="tag_pinsa">Pinsa</span><span class="price">€ 16,5</span></div>
+              <div class="row">
+                <span class="tag" data-ui="tag_pinsa">Pinsa</span>
+                <span class="price">€ 16,5</span>
+              </div>
             </div>
           </div>
 
-          <div class="card" data-icons="fish">
+          <div class="card">
             <img src="./img/piatti/focacciasalmone.jpeg" alt="Pinsa Salmone">
             <div class="content">
               <p class="name"><span>Pinsa Salmone</span></p>
               <p class="desc" data-desc-key="pinsa_salmone_desc">Mozzarella, Salmone affumicato e rucola   1-4-6-7.</p>
-              <div class="row"><span class="tag" data-ui="tag_pinsa">Pinsa</span><span class="price">€ 14</span></div>
+              <div class="row">
+                <span class="tag" data-ui="tag_pinsa">Pinsa</span>
+                <span class="price">€ 14</span>
+              </div>
             </div>
           </div>
 
-          <div class="card" data-icons="pig">
+          <div class="card">
             <img src="./img/piatti/crostino.jpeg" alt="Pinsa Crostino">
             <div class="content">
               <p class="name"><span>Pinsa Crostino</span></p>
               <p class="desc" data-desc-key="pinsa_crostino_desc">Mozzarella, Prosciutto cotto e olio EVO  1-6-7.</p>
-              <div class="row"><span class="tag" data-ui="tag_pinsa">Pinsa</span><span class="price">€ 13,5</span></div>
+              <div class="row">
+                <span class="tag" data-ui="tag_pinsa">Pinsa</span>
+                <span class="price">€ 13,5</span>
+              </div>
             </div>
           </div>
 
@@ -932,46 +958,58 @@
         <h2 class="section-title" data-ui="sec_insalatone">Insalatone</h2>
         <div class="grid">
 
-          <div class="card" data-icons="fish">
+          <div class="card">
             <img src="./img/piatti/insalatagarbatella.jpeg" alt="Insalatona Garbatella">
             <div class="content">
               <p class="name"><span>Insalatona Garbatella</span></p>
               <p class="desc" data-desc-key="ins_garbatella_desc">Misticanza, tonno, mais, uovo sodo, olive, pomodori, carote.</p>
-              <div class="row"><span class="tag" data-ui="tag_insalatona">Insalatona</span><span class="price">€ 13</span></div>
+              <div class="row">
+                <span class="tag" data-ui="tag_insalatona">Insalatona</span>
+                <span class="price">€ 13</span>
+              </div>
             </div>
           </div>
 
-          <div class="card" data-icons="cow">
+          <div class="card">
             <img src="./img/piatti/insalatatestaccio.jpeg" alt="Insalatona Testaccio">
             <div class="content">
               <p class="name"><span>Insalatona Testaccio</span></p>
               <p class="desc" data-desc-key="ins_testaccio_desc">Rucola, Bresaola, Grana, Olive, Melanzane  7.</p>
-              <div class="row"><span class="tag" data-ui="tag_insalatona">Insalatona</span><span class="price">€ 13</span></div>
+              <div class="row">
+                <span class="tag" data-ui="tag_insalatona">Insalatona</span>
+                <span class="price">€ 13</span>
+              </div>
             </div>
           </div>
 
-          <!-- ✅ FIX: Insalatona Borgo (markup corretto, niente testo rotto) -->
-          <div class="card" data-icons="fish">
+          <div class="card">
             <img src="./img/piatti/insalataborgo.jpeg" alt="Insalatona Borgo">
             <div class="content">
               <p class="name"><span>Insalatona Borgo</span></p>
               <p class="desc" data-desc-key="ins_borgo_desc">Rucola, Salmone affumicato, Feta, Agrumi, Noci  4-7-8.</p>
-              <div class="row"><span class="tag" data-ui="tag_insalatona">Insalatona</span><span class="price">€ 13</span></div>
+              <div class="row">
+                <span class="tag" data-ui="tag_insalatona">Insalatona</span>
+                <span class="price">€ 13</span>
+              </div>
             </div>
           </div>
 
-          <div class="card" data-icons="leaf">
+          <div class="card">
             <img src="./img/piatti/instrasteve.jpeg" alt="Insalatona Trastevere">
             <div class="content">
               <p class="name"><span>Insalatona Trastevere</span></p>
               <p class="desc" data-desc-key="trastevere_desc">Misticanza, Mozzarella di L. di Bufala, Pomodori, Olive, Mais, Zucchine  7.</p>
-              <div class="row"><span class="tag" data-ui="tag_insalatona">Insalatona</span><span class="price">€ 13</span></div>
+              <div class="row">
+                <span class="tag" data-ui="tag_insalatona">Insalatona</span>
+                <span class="price">€ 13</span>
+              </div>
             </div>
           </div>
 
         </div>
       </section>
- <!-- DOLCI -->
+
+      <!-- DOLCI -->
       <section id="dolci" class="section">
         <h2 class="section-title" data-ui="sec_dolci">Dolci</h2>
         <div class="grid">
@@ -981,8 +1019,6 @@
             <div class="content">
               <p class="name"><span>Tiramisù espresso “Tonnarello”</span></p>
               <p class="desc" data-desc-key="tiramisu_desc">Tiramisù espresso "Tonnarello" con biscotti Gentilini  1-3-7-8.</p>
-
-              <!-- ✅ fascia fissa in basso -->
               <div class="row">
                 <span class="tag" data-ui="tag_dolce">Dolce</span>
                 <span class="price">€ 7,5</span>
@@ -995,7 +1031,6 @@
             <div class="content">
               <p class="name"><span>Cheesecake ai frutti di bosco</span></p>
               <p class="desc" data-desc-key="cheesecake_bosco_desc">Cheesecake ai frutti di bosco  1-3-6-7-8.</p>
-
               <div class="row">
                 <span class="tag" data-ui="tag_dolce">Dolce</span>
                 <span class="price">€ 7</span>
@@ -1008,7 +1043,6 @@
             <div class="content">
               <p class="name"><span>Cheesecake Nutella</span></p>
               <p class="desc" data-desc-key="cheesecake_desc">Cheesecake con Nutella  1-3-6-7-8.</p>
-
               <div class="row">
                 <span class="tag" data-ui="tag_dolce">Dolce</span>
                 <span class="price">€ 7</span>
@@ -1021,7 +1055,6 @@
             <div class="content">
               <p class="name"><span>Pannacotta con le Fragole</span></p>
               <p class="desc" data-desc-key="pannacotta_desc">Pannacotta con Fragole  7.</p>
-
               <div class="row">
                 <span class="tag" data-ui="tag_dolce">Dolce</span>
                 <span class="price">€ 6,5</span>
@@ -1034,7 +1067,6 @@
             <div class="content">
               <p class="name"><span>Salame di cioccolato</span></p>
               <p class="desc" data-desc-key="salame_desc">Salame di Cioccolato fatto in casa  1-3-6-7-8.</p>
-
               <div class="row">
                 <span class="tag" data-ui="tag_dolce">Dolce</span>
                 <span class="price">€ 7</span>
@@ -1047,7 +1079,6 @@
             <div class="content">
               <p class="name"><span>Tortino al cioccolato</span></p>
               <p class="desc" data-desc-key="tortino_desc">Tortino al cioccolato con cuore caldo  1-3-6-7.</p>
-
               <div class="row">
                 <span class="tag" data-ui="tag_dolce">Dolce</span>
                 <span class="price">€ 7</span>
@@ -1060,7 +1091,6 @@
             <div class="content">
               <p class="name"><span>Gelato alla Crema affogato al caffè</span></p>
               <p class="desc" data-desc-key="gelato_desc">Gelato alla Crema affogato al caffè Espresso  3-7.</p>
-
               <div class="row">
                 <span class="tag" data-ui="tag_dolce">Dolce</span>
                 <span class="price">€ 7,5</span>
@@ -1078,16 +1108,11 @@
   <section class="allergens-wrap" id="allergeni">
     <div class="allergens-box">
       <h3 data-ui="allergens_title">Allergeni</h3>
-
       <p data-ui="allergens_text">
         Ai sensi del Reg. (UE) n. 1169/2011, si avvisa la gentile clientela che negli alimenti e nelle bevande preparati in questo esercizio,
         possono essere contenuti ingredienti o coadiuvanti considerati allergeni. Le informazioni circa la presenza di sostanze o prodotti che
         provocano allergie o intolleranze sono disponibili rivolgendosi al personale in servizio e sul menù.
-        Il cibo è una nostra grande passione: i nostri pasti sono realizzati con ingredienti di elevata qualità e facciamo del nostro meglio per
-        soddisfare le esigenze dei clienti con allergie alimentari. Tuttavia, non possiamo garantire un ambiente completamente privo di
-        allergeni e tracce di alcuni ingredienti potrebbero essere presenti nei nostri posti.
       </p>
-
       <div class="allergen-grid" id="allergenGrid"></div>
     </div>
   </section>
@@ -1097,15 +1122,14 @@
     <span class="service" data-ui="service_line">servizio per i ragazzi che vi hanno servito e sorriso 5%</span>
   </footer>
 
-  <!-- LIGHTBOX OVERLAY -->
+  <!-- LIGHTBOX -->
   <div id="lightbox" class="lightbox" aria-hidden="true">
     <button class="close" id="lbClose" aria-label="Chiudi">✕</button>
     <img id="lbImg" alt="">
     <div class="hint" id="lbHint" data-ui="lb_hint">Clicca fuori o premi ESC per chiudere</div>
   </div>
-
-  <script>
- // ===== Placeholder immagine (se file mancante) =====
+    <script>
+  // ===== Placeholder immagine (se file mancante) =====
   const PLACEHOLDER_SRC =
     'data:image/svg+xml;charset=utf-8,' +
     encodeURIComponent(`
@@ -1132,106 +1156,115 @@
     try { localStorage.setItem(key, val); } catch(e){ /* ignore */ }
   }
 
-  // ===== Traduzioni Allergeni =====
+  // ===== Allergeni tradotti =====
   const ALLERGENS = {
     it: {
       title: "Allergeni",
-      text: `Ai sensi del Reg. (UE) n. 1169/2011, si avvisa la gentile clientela che negli alimenti e nelle bevande preparati in questo esercizio,
-possono essere contenuti ingredienti o coadiuvanti considerati allergeni. Le informazioni circa la presenza di sostanze o prodotti che provocano
-allergie o intolleranze sono disponibili rivolgendosi al personale in servizio e sul menù.`,
+      text:
+`Ai sensi del Reg. (UE) n. 1169/2011, si avvisa la gentile clientela che negli alimenti e nelle bevande preparati in questo esercizio,
+possono essere contenuti ingredienti o coadiuvanti considerati allergeni. Le informazioni circa la presenza di sostanze o prodotti che
+provocano allergie o intolleranze sono disponibili rivolgendosi al personale in servizio e sul menù.`,
       items: [
-        "Cereali contenenti glutine", "Crostacei", "Uova", "Pesce",
-        "Arachidi", "Soia", "Latte", "Frutta a guscio",
-        "Sedano", "Senape", "Semi di sesamo", "Anidride solforosa e solfiti",
-        "Lupini", "Molluschi"
+        "Cereali contenenti glutine","Crostacei","Uova","Pesce",
+        "Arachidi","Soia","Latte","Frutta a guscio",
+        "Sedano","Senape","Semi di sesamo","Anidride solforosa e solfiti",
+        "Lupini","Molluschi"
       ]
     },
     en: {
       title: "Allergens",
-      text: `According to EU Regulation 1169/2011, foods and drinks prepared in this restaurant may contain allergens.
+      text:
+`According to EU Regulation 1169/2011, foods and drinks prepared in this restaurant may contain allergens.
 For information, ask our staff.`,
       items: [
-        "Gluten cereals", "Crustaceans", "Eggs", "Fish",
-        "Peanuts", "Soy", "Milk", "Nuts",
-        "Celery", "Mustard", "Sesame", "Sulphites",
-        "Lupin", "Molluscs"
+        "Gluten cereals","Crustaceans","Eggs","Fish",
+        "Peanuts","Soy","Milk","Nuts",
+        "Celery","Mustard","Sesame","Sulphites",
+        "Lupin","Molluscs"
       ]
     },
     es: {
       title: "Alérgenos",
-      text: `Según el Reglamento (UE) 1169/2011, se informa que los alimentos y bebidas preparados pueden contener alérgenos.
+      text:
+`Según el Reglamento (UE) 1169/2011, se informa que los alimentos y bebidas preparados pueden contener alérgenos.
 Para más información, consulte al personal.`,
       items: [
-        "Cereales con gluten", "Crustáceos", "Huevos", "Pescado",
-        "Cacahuetes", "Soja", "Leche", "Frutos de cáscara",
-        "Apio", "Mostaza", "Sésamo", "Sulfitos",
-        "Altramuces", "Moluscos"
+        "Cereales con gluten","Crustáceos","Huevos","Pescado",
+        "Cacahuetes","Soja","Leche","Frutos de cáscara",
+        "Apio","Mostaza","Sésamo","Sulfitos",
+        "Altramuces","Moluscos"
       ]
     },
     pt: {
-  title: "Alergénios",
-  text: `De acordo com o Regulamento (UE) n.º 1169/2011, informa-se que os alimentos e bebidas preparados neste estabelecimento
-podem conter ingredientes ou adjuvantes considerados alergénios. Para mais informações, por favor consulte a nossa equipa.`,
-  items: [
-    "Cereais que contêm glúten", "Crustáceos", "Ovos", "Peixe",
-    "Amendoins", "Soja", "Leite", "Frutos de casca rija",
-    "Aipo", "Mostarda", "Sementes de sésamo", "Dióxido de enxofre e sulfitos",
-    "Tremoços", "Moluscos"
-  ]
-},
+      title: "Alergénios",
+      text:
+`De acordo com o Regulamento (UE) 1169/2011, os alimentos e bebidas preparados neste restaurante podem conter alergénios.
+Para mais informações, pergunte à equipa.`,
+      items: [
+        "Cereais com glúten","Crustáceos","Ovos","Peixe",
+        "Amendoins","Soja","Leite","Frutos de casca rija",
+        "Aipo","Mostarda","Sésamo","Sulfitos",
+        "Tremoço","Moluscos"
+      ]
+    },
     fr: {
       title: "Allergènes",
-      text: `Conformément au règlement (UE) 1169/2011, les aliments et boissons préparés peuvent contenir des allergènes.
+      text:
+`Conformément au règlement (UE) 1169/2011, les aliments et boissons préparés peuvent contenir des allergènes.
 Pour plus d'informations, demandez au personnel.`,
       items: [
-        "Céréales contenant du gluten", "Crustacés", "Oeufs", "Poisson",
-        "Arachides", "Soja", "Lait", "Fruits à coque",
-        "Céleri", "Moutarde", "Sésame", "Sulfites",
-        "Lupin", "Mollusques"
+        "Céréales contenant du gluten","Crustacés","Oeufs","Poisson",
+        "Arachides","Soja","Lait","Fruits à coque",
+        "Céleri","Moutarde","Sésame","Sulfites",
+        "Lupin","Mollusques"
       ]
     },
     ko: {
       title: "알레르기 유발 물질",
-      text: `EU 규정 1169/2011에 따라, 본 매장에서 제공되는 음식과 음료에는 알레르기 유발 물질이 포함될 수 있습니다.
+      text:
+`EU 규정 1169/2011에 따라, 본 매장에서 제공되는 음식과 음료에는 알레르기 유발 물질이 포함될 수 있습니다.
 자세한 내용은 직원에게 문의해 주세요.`,
       items: [
-        "글루텐 함유 곡물", "갑각류", "달걀", "생선",
-        "땅콩", "대두", "우유", "견과류",
-        "셀러리", "겨자", "참깨", "아황산염",
-        "루핀", "연체류"
+        "글루텐 함유 곡물","갑각류","달걀","생선",
+        "땅콩","대두","우유","견과류",
+        "셀러리","겨자","참깨","아황산염",
+        "루핀","연체류"
       ]
     },
     ja: {
       title: "アレルゲン",
-      text: `EU規則1169/2011に基づき、当店の飲食物にはアレルゲンが含まれる場合があります。
+      text:
+`EU規則1169/2011に基づき、当店の飲食物にはアレルゲンが含まれる場合があります。
 詳細はスタッフまでお問い合わせください。`,
       items: [
-        "グルテン含有穀物", "甲殻類", "卵", "魚",
-        "落花生", "大豆", "乳", "木の実",
-        "セロリ", "マスタード", "ごま", "亜硫酸塩",
-        "ルピナス", "軟体動物"
+        "グルテン含有穀物","甲殻類","卵","魚",
+        "落花生","大豆","乳","木の実",
+        "セロリ","マスタード","ごま","亜硫酸塩",
+        "ルピナス","軟体動物"
       ]
     },
     zh: {
       title: "过敏原",
-      text: `根据欧盟法规1169/2011，本店提供的食品和饮料可能含有过敏原。
+      text:
+`根据欧盟法规1169/2011，本店提供的食品和饮料可能含有过敏原。
 详情请咨询工作人员。`,
       items: [
-        "含麸质谷物", "甲壳类", "蛋类", "鱼类",
-        "花生", "大豆", "乳", "坚果",
-        "芹菜", "芥末", "芝麻", "亚硫酸盐",
-        "羽扇豆", "软体动物"
+        "含麸质谷物","甲壳类","蛋类","鱼类",
+        "花生","大豆","乳","坚果",
+        "芹菜","芥末","芝麻","亚硫酸盐",
+        "羽扇豆","软体动物"
       ]
     },
     ar: {
       title: "مسببات الحساسية",
-      text: `وفقًا للائحة الاتحاد الأوروبي 1169/2011، قد تحتوي الأطعمة والمشروبات في هذا المطعم على مسببات حساسية.
+      text:
+`وفقًا للائحة الاتحاد الأوروبي 1169/2011، قد تحتوي الأطعمة والمشروبات في هذا المطعم على مسببات حساسية.
 لمزيد من المعلومات اسأل الموظفين.`,
       items: [
-        "حبوب تحتوي على الغلوتين", "قشريات", "بيض", "سمك",
-        "فول سوداني", "صويا", "حليب", "مكسرات",
-        "كرفس", "خردل", "سمسم", "كبريتيت",
-        "ترمس", "رخويات"
+        "حبوب تحتوي على الغلوتين","قشريات","بيض","سمك",
+        "فول سوداني","صويا","حليب","مكسرات",
+        "كرفس","خردل","سمسم","كبريتيت",
+        "ترمس","رخويات"
       ]
     }
   };
@@ -1272,7 +1305,6 @@ Pour plus d'informations, demandez au personnel.`,
       service_line: "servizio per i ragazzi che vi hanno servito e sorriso 5%",
       lb_hint: "Clicca fuori o premi ESC per chiudere"
     },
-
     en: {
       hero_sub: "Digital menu • Tap a category to see the dishes",
       btn_antipasti: "Starters",
@@ -1307,7 +1339,6 @@ Pour plus d'informations, demandez au personnel.`,
       service_line: "service for the guys who served you and smiled 5%",
       lb_hint: "Click outside or press ESC to close"
     },
-
     es: {
       hero_sub: "Menú digital • Toca una categoría para ver los platos",
       btn_antipasti: "Entrantes",
@@ -1343,44 +1374,39 @@ Pour plus d'informations, demandez au personnel.`,
       lb_hint: "Haz clic fuera o pulsa ESC para cerrar"
     },
     pt: {
-  hero_sub: "Menu digital • Toque numa categoria para ver os pratos",
-  btn_antipasti: "Entradas",
-  btn_primi: "Primeiros pratos",
-  btn_polpette: "Almôndegas para todos",
-  btn_secondi: "Pratos principais",
-  btn_contorni: "Acompanhamentos",
-  btn_pinse: "Pinsa",
-  btn_insalatone: "Saladas",
-  btn_dolci: "Sobremesas",
-  scroll_hint: "⬇️ Deslize ou toque numa categoria",
-
-  sec_antipasti: "Entradas",
-  sec_primi: "Primeiros pratos",
-  sec_polpette: "Almôndegas",
-  sec_secondi: "Pratos principais",
-  sec_contorni: "Acompanhamentos",
-  sec_pinse: "Pinsa",
-  sec_insalatone: "Saladas",
-  sec_dolci: "Sobremesas",
-
-  tag_antipasto: "Entrada",
-  tag_primo: "Primeiro",
-  tag_polpette: "Almôndegas",
-  tag_secondo: "Principal",
-  tag_contorno: "Acompanhamento",
-  tag_pinsa: "Pinsa",
-  tag_insalatona: "Salada",
-  tag_dolce: "Sobremesa",
-  tag_extra: "Extra",
-
-  allergens_title: ALLERGENS.pt.title,
-  allergens_text: ALLERGENS.pt.text,
-
-  footer_line: "© Tonnarello • Alergénios: pergunte à equipa",
-  service_line: "serviço para os rapazes que o serviram e sorriram 5%",
-  lb_hint: "Clique fora ou prima ESC para fechar"
-},
-
+      hero_sub: "Menu digital • Toque numa categoria para ver os pratos",
+      btn_antipasti: "Entradas",
+      btn_primi: "Primeiros pratos",
+      btn_polpette: "Almôndegas para todos",
+      btn_secondi: "Pratos principais",
+      btn_contorni: "Acompanhamentos",
+      btn_pinse: "Pinsa",
+      btn_insalatone: "Saladas",
+      btn_dolci: "Sobremesas",
+      scroll_hint: "⬇️ Deslize ou toque numa categoria",
+      sec_antipasti: "Entradas",
+      sec_primi: "Primeiros pratos",
+      sec_polpette: "Almôndegas",
+      sec_secondi: "Pratos principais",
+      sec_contorni: "Acompanhamentos",
+      sec_pinse: "Pinsa",
+      sec_insalatone: "Saladas",
+      sec_dolci: "Sobremesas",
+      tag_antipasto: "Entrada",
+      tag_primo: "Primeiro",
+      tag_polpette: "Almôndegas",
+      tag_secondo: "Principal",
+      tag_contorno: "Acompanhamento",
+      tag_pinsa: "Pinsa",
+      tag_insalatona: "Salada",
+      tag_dolce: "Sobremesa",
+      tag_extra: "Extra",
+      allergens_title: ALLERGENS.pt.title,
+      allergens_text: ALLERGENS.pt.text,
+      footer_line: "© Tonnarello • Alergénios: pergunte à equipa",
+      service_line: "serviço para os rapazes que o serviram e sorriram 5%",
+      lb_hint: "Clique fora ou prima ESC para fechar"
+    },
     fr: {
       hero_sub: "Menu digital • Touchez une catégorie pour voir les plats",
       btn_antipasti: "Entrées",
@@ -1412,10 +1438,9 @@ Pour plus d'informations, demandez au personnel.`,
       allergens_title: ALLERGENS.fr.title,
       allergens_text: ALLERGENS.fr.text,
       footer_line: "© Tonnarello • Allergènes : demandez au personnel",
-      service_line: "service pour les garçons qui vous ont servi etve souri 5%",
+      service_line: "service pour les garçons qui vous ont servi et souri 5%",
       lb_hint: "Cliquez dehors ou appuyez sur Échap pour fermer"
     },
-
     ko: {
       hero_sub: "디지털 메뉴 • 카테고리를 눌러 메뉴를 확인하세요",
       btn_antipasti: "전채",
@@ -1450,7 +1475,6 @@ Pour plus d'informations, demandez au personnel.`,
       service_line: "서비스 요금(직원) 5%",
       lb_hint: "바깥을 클릭하거나 ESC를 누르면 닫힙니다"
     },
-
     ja: {
       hero_sub: "デジタルメニュー • カテゴリーをタップしてください",
       btn_antipasti: "前菜",
@@ -1485,7 +1509,6 @@ Pour plus d'informations, demandez au personnel.`,
       service_line: "サービス料(スタッフ) 5%",
       lb_hint: "外側をクリック、または ESC で閉じる"
     },
-
     zh: {
       hero_sub: "电子菜单 • 点击分类查看菜品",
       btn_antipasti: "前菜",
@@ -1520,7 +1543,6 @@ Pour plus d'informations, demandez au personnel.`,
       service_line: "服务费(员工) 5%",
       lb_hint: "点击外部或按 ESC 关闭"
     },
-
     ar: {
       hero_sub: "قائمة رقمية • اضغط على الفئة لعرض الأطباق",
       btn_antipasti: "مقبلات",
@@ -1557,8 +1579,10 @@ Pour plus d'informations, demandez au personnel.`,
     }
   };
 
-    // ✅ struttura pronta: qui puoi (poi) mettere le descrizioni tradotte per lingua
-    const DESC = {
+  // ===== Descrizioni (stesse chiavi data-desc-key) =====
+  // Nota: qui hai IT + EN + ES + PT + FR + KO + JA + ZH + AR (copiate dal tuo impianto precedente).
+  // Se vuoi accorciare, puoi lasciare solo IT e EN, ma così è completo.
+const DESC = {
   it: {
     carciofo_desc: "Piatto tipico della tradizione Romana.",
     patate_desc: "Le nostre patate cacio e pepe.",
@@ -1702,8 +1726,7 @@ Pour plus d'informations, demandez au personnel.`,
     tortino_desc: "Chocolate lava cake.",
     gelato_desc: "Custard gelato “affogato” with espresso."
   },
-
-  es: {
+    es: {
     carciofo_desc: "Plato típico de la tradición romana.",
     patate_desc: "Nuestras patatas con queso y pimienta.",
     tris_desc: "Selección de bruschettas: tomate; mozzarella y jamón curado; mozzarella y anchoas.",
@@ -1774,78 +1797,151 @@ Pour plus d'informations, demandez au personnel.`,
     tortino_desc: "Bizcocho de chocolate con corazón fundente.",
     gelato_desc: "Helado de crema “affogato” con espresso."
   },
-pt: {
-  carciofo_desc: "Prato típico da tradição romana.",
-  patate_desc: "As nossas batatas com queijo e pimenta.",
-  tris_desc: "Seleção de bruschettas: tomate; mozzarella e presunto curado; mozzarella e anchovas.",
-  suppli_desc: "Mini supplì (8 unid.): Amatriciana, ragù, queijo e pimenta e croquetes de batata.",
-  calamari_desc: "Lulas fritas douradas.",
-  tagliere_desc: "Seleção de enchidos e queijos.",
-  caprese_desc: "Mozzarella de búfala e tomate.",
-  prosciutto_desc: "Presunto curado e mozzarella de búfala.",
-  focaccia_desc: "Focaccia quente com azeite virgem extra e alecrim.",
-  marinara_desc: "Tomate, alho e orégãos.",
 
-  tonn_caciopepe_desc: "Massa fresca com ovo com queijo pecorino e pimenta preta.",
-  carbonara_desc: "Massa fresca com ovo com guanciale, ovo e queijo pecorino.",
-  nonnanadia_desc: "Massa fresca com ovo com beringela, azeitonas, alcaparras e tomate cherry.",
-  amatriciana_desc: "Massa fresca com ovo com guanciale e tomate.",
-  gricia_desc: "Massa fresca com ovo com guanciale, Pecorino Romano e pimenta.",
-  polpettepasta_desc: "Massa fresca com ovo com molho de almôndegas.",
-  lasagna_desc: "Provola fumada e Grana Padano DOP.",
-  pesto_desc: "Rigatoni com pesto.",
+  pt: {
+    carciofo_desc: "Prato típico da tradição romana.",
+    patate_desc: "As nossas batatas com queijo e pimenta.",
+    tris_desc: "Seleção de bruschettas: tomate; mozzarella e presunto curado; mozzarella e anchovas.",
+    suppli_desc: "Mini supplì (8 unid.): Amatriciana, ragù, queijo e pimenta e croquetes de batata.",
+    calamari_desc: "Lulas fritas douradas.",
+    tagliere_desc: "Seleção de enchidos e queijos.",
+    caprese_desc: "Mozzarella de búfala e tomate.",
+    prosciutto_desc: "Presunto curado e mozzarella de búfala.",
+    focaccia_desc: "Focaccia quente com azeite virgem extra e alecrim.",
+    marinara_desc: "Tomate, alho e orégãos.",
 
-  baccala_desc: "Almôndegas de bacalhau com molho marinara.",
-  polpettecacio_desc: "Almôndegas de carne com recheio e molho de queijo e pimenta.",
-  polpettesugo_desc: "No molho de tomate da mãe.",
-  polpette_vaccinara_desc: "Almôndegas ao estilo vaccinara.",
-  polpette_melanzane_desc: "Almôndegas de beringela e batata.",
+    tonn_caciopepe_desc: "Massa fresca com ovo com queijo pecorino e pimenta preta.",
+    carbonara_desc: "Massa fresca com ovo com guanciale, ovo e queijo pecorino.",
+    nonnanadia_desc: "Massa fresca com ovo com beringela, azeitonas, alcaparras e tomate cherry.",
+    amatriciana_desc: "Massa fresca com ovo com guanciale e tomate.",
+    gricia_desc: "Massa fresca com ovo com guanciale, Pecorino Romano e pimenta.",
+    polpettepasta_desc: "Massa fresca com ovo com molho de almôndegas.",
+    lasagna_desc: "Provola fumada e Grana Padano DOP.",
+    pesto_desc: "Rigatoni com pesto.",
 
-  saltimbocca_desc: "Fatias de porco com presunto curado e puré de batata.",
-  tagliata_desc: "Tagliata de vaca com rúcula, Grana e tomate cherry.",
-  straccetti_desc: "Tiras de vaca ao vinho com rúcula, Grana e batatas assadas.",
-  coda_desc: "Rabo de boi à vaccinara com puré de batata.",
-  pollo_desc: "Frango com pimentos, batatas assadas e tomate.",
-  abbacchio_desc: "Borrego assado no forno com batatas.",
-  cotoletta_desc: "Costeleta panada com batatas fritas.",
+    baccala_desc: "Almôndegas de bacalhau com molho marinara.",
+    polpettecacio_desc: "Almôndegas de carne com recheio e molho de queijo e pimenta.",
+    polpettesugo_desc: "No molho de tomate da mãe.",
+    polpette_vaccinara_desc: "Almôndegas ao estilo vaccinara.",
+    polpette_melanzane_desc: "Almôndegas de beringela e batata.",
 
-  cicoria_desc: "Chicória salteada com alho e malagueta.",
-  insalata_pomodori_desc: "Salada verde com tomate.",
-  patate_forno_desc: "Batatas assadas.",
-  patate_fritte_desc: "Batatas fritas.",
-  pure_desc: "Puré de batata.",
+    saltimbocca_desc: "Fatias de porco com presunto curado e puré de batata.",
+    tagliata_desc: "Tagliata de vaca com rúcula, Grana e tomate cherry.",
+    straccetti_desc: "Tiras de vaca ao vinho com rúcula, Grana e batatas assadas.",
+    coda_desc: "Rabo de boi à vaccinara com puré de batata.",
+    pollo_desc: "Frango com pimentos, batatas assadas e tomate.",
+    abbacchio_desc: "Borrego assado no forno com batatas.",
+    cotoletta_desc: "Costeleta panada com batatas fritas.",
 
-  pinsa_margherita_desc: "Tomate, mozzarella e manjericão.",
-  pinsa_funghi_desc: "Tomate, mozzarella e cogumelos.",
-  pinsa_cacioepepe_desc: "Mozzarella, queijo e pimenta.",
-  pinsa_contadina_desc: "Tomate, mozzarella, curgete, beringela e pimentos.",
-  pinsa_napoli_desc: "Tomate, mozzarella, anchovas e orégãos.",
-  pinsa_parma_desc: "Tomate, mozzarella e presunto curado.",
-  pinsa_quattroformaggi_desc: "Queijo azul, mozzarella, provola e brie.",
-  pinsa_diavola_desc: "Tomate, mozzarella e salame picante.",
-  pinsa_capricciosa_desc: "Tomate, mozzarella, fiambre, ovo, azeitonas, alcachofras e cogumelos.",
-  pinsa_boscaiola_desc: "Mozzarella, cogumelos e salsicha.",
-  pinsa_salsicciaepatate_desc: "Mozzarella, salsicha, batatas assadas e alecrim.",
-  pinsa_tonno_desc: "Tomate, mozzarella, atum, cebola e alcaparras.",
-  pinsa_rustica_desc: "Tomate, mozzarella, salsicha e chicória salteada.",
-  pinsa_bufalina_desc: "Tomate cherry fresco, mozzarella, mozzarella de búfala e manjericão.",
-  pinsa_salmone_desc: "Mozzarella, salmão fumado e rúcula.",
-  pinsa_crostino_desc: "Mozzarella, fiambre e azeite virgem extra.",
+    cicoria_desc: "Chicória salteada com alho e malagueta.",
+    insalata_pomodori_desc: "Salada verde com tomate.",
+    patate_forno_desc: "Batatas assadas.",
+    patate_fritte_desc: "Batatas fritas.",
+    pure_desc: "Puré de batata.",
 
-  ins_garbatella_desc: "Mistura de folhas, atum, milho, ovo cozido, azeitonas, tomate, cenoura.",
-  ins_testaccio_desc: "Rúcula, bresaola, Grana, azeitonas, beringela.",
-  ins_borgo_desc: "Rúcula, salmão fumado, feta, citrinos, nozes.",
-  trastevere_desc: "Mistura de folhas, mozzarella de búfala, tomate, azeitonas, milho, curgete.",
+    pinsa_margherita_desc: "Tomate, mozzarella e manjericão.",
+    pinsa_funghi_desc: "Tomate, mozzarella e cogumelos.",
+    pinsa_cacioepepe_desc: "Mozzarella, queijo e pimenta.",
+    pinsa_contadina_desc: "Tomate, mozzarella, curgete, beringela e pimentos.",
+    pinsa_napoli_desc: "Tomate, mozzarella, anchovas e orégãos.",
+    pinsa_parma_desc: "Tomate, mozzarella e presunto curado.",
+    pinsa_quattroformaggi_desc: "Queijo azul, mozzarella, provola e brie.",
+    pinsa_diavola_desc: "Tomate, mozzarella e salame picante.",
+    pinsa_capricciosa_desc: "Tomate, mozzarella, fiambre, ovo, azeitonas, alcachofras e cogumelos.",
+    pinsa_boscaiola_desc: "Mozzarella, cogumelos e salsicha.",
+    pinsa_salsicciaepatate_desc: "Mozzarella, salsicha, batatas assadas e alecrim.",
+    pinsa_tonno_desc: "Tomate, mozzarella, atum, cebola e alcaparras.",
+    pinsa_rustica_desc: "Tomate, mozzarella, salsicha e chicória salteada.",
+    pinsa_bufalina_desc: "Tomate cherry fresco, mozzarella, mozzarella de búfala e manjericão.",
+    pinsa_salmone_desc: "Mozzarella, salmão fumado e rúcula.",
+    pinsa_crostino_desc: "Mozzarella, fiambre e azeite virgem extra.",
 
-  tiramisu_desc: "Tiramisù espresso “Tonnarello” com bolachas Gentilini.",
-  cheesecake_bosco_desc: "Cheesecake de frutos vermelhos.",
-  cheesecake_desc: "Cheesecake com Nutella.",
-  pannacotta_desc: "Panna cotta com morangos.",
-  salame_desc: "Salame de chocolate caseiro.",
-  tortino_desc: "Bolo de chocolate com coração quente.",
-  gelato_desc: "Gelado de creme affogato com espresso."
-},
-  fr: {
+    ins_garbatella_desc: "Mistura de folhas, atum, milho, ovo cozido, azeitonas, tomate, cenoura.",
+    ins_testaccio_desc: "Rúcula, bresaola, Grana, azeitonas, beringela.",
+    ins_borgo_desc: "Rúcula, salmão fumado, feta, citrinos, nozes.",
+    trastevere_desc: "Mistura de folhas, mozzarella de búfala, tomate, azeitonas, milho, curgete.",
+
+    tiramisu_desc: "Tiramisù espresso “Tonnarello” com bolachas Gentilini.",
+    cheesecake_bosco_desc: "Cheesecake de frutos vermelhos.",
+    cheesecake_desc: "Cheesecake com Nutella.",
+    pannacotta_desc: "Panna cotta com morangos.",
+    salame_desc: "Salame de chocolate caseiro.",
+    tortino_desc: "Bolo de chocolate com coração quente.",
+    gelato_desc: "Gelado de creme affogato com espresso."
+  },
+    /* ================= PORTOGHESE ================= */
+  pt: {
+    carciofo_desc: "Prato típico da tradição romana.",
+    patate_desc: "As nossas batatas com queijo e pimenta (cacio e pepe).",
+    tris_desc: "Seleção de bruschettas: tomate; mozzarella e presunto curado; mozzarella e anchovas.",
+    suppli_desc: "Mini supplì: Amatriciana, ragù, cacio e pepe e croquete de batata (8 unid.).",
+    calamari_desc: "Lulas douradas e crocantes.",
+    tagliere_desc: "Seleção de enchidos e queijos.",
+    caprese_desc: "Mozzarella de búfala e tomate.",
+    prosciutto_desc: "Presunto curado e mozzarella de búfala.",
+    focaccia_desc: "Focaccia quente com azeite virgem extra e alecrim.",
+    marinara_desc: "Tomate, alho e orégãos.",
+
+    tonn_caciopepe_desc: "Massa fresca com ovo com queijo pecorino e pimenta preta.",
+    carbonara_desc: "Massa fresca com ovo com guanciale, ovo e queijo pecorino.",
+    nonnanadia_desc: "Massa fresca com ovo com beringela, azeitonas, alcaparras e tomate cherry.",
+    amatriciana_desc: "Massa fresca com ovo com guanciale e tomate.",
+    gricia_desc: "Massa fresca com ovo com guanciale, Pecorino Romano e pimenta.",
+    polpettepasta_desc: "Massa fresca com ovo com molho de almôndegas.",
+    lasagna_desc: "Lasanha de ragù com provola e Grana Padano DOP.",
+    pesto_desc: "Rigatoni com pesto, pinhões e tomate cherry.",
+
+    baccala_desc: "Almôndegas de bacalhau com molho marinara.",
+    polpettecacio_desc: "Almôndegas de carne com recheio e molho de cacio e pepe.",
+    polpettesugo_desc: "No molho de tomate da mãe.",
+    polpette_vaccinara_desc: "Almôndegas ao estilo vaccinara.",
+    polpette_melanzane_desc: "Almôndegas de beringela e batata.",
+
+    saltimbocca_desc: "Fatias de porco com presunto curado e puré de batata.",
+    tagliata_desc: "Tagliata de vaca com rúcula, Grana e tomate cherry.",
+    straccetti_desc: "Tiras de vaca ao vinho com rúcula, Grana e batatas assadas.",
+    coda_desc: "Rabo de boi à vaccinara com puré de batata.",
+    pollo_desc: "Frango com pimentos, batatas assadas e tomate.",
+    abbacchio_desc: "Borrego assado no forno com batatas.",
+    cotoletta_desc: "Costeleta panada com batatas fritas.",
+
+    cicoria_desc: "Chicória salteada com alho e malagueta.",
+    insalata_pomodori_desc: "Salada verde com tomate.",
+    patate_forno_desc: "Batatas assadas.",
+    patate_fritte_desc: "Batatas fritas.",
+    pure_desc: "Puré de batata.",
+
+    pinsa_margherita_desc: "Tomate, mozzarella e manjericão.",
+    pinsa_funghi_desc: "Tomate, mozzarella e cogumelos.",
+    pinsa_cacioepepe_desc: "Mozzarella, queijo e pimenta.",
+    pinsa_contadina_desc: "Tomate, mozzarella, curgete, beringela e pimentos.",
+    pinsa_napoli_desc: "Tomate, mozzarella, anchovas e orégãos.",
+    pinsa_parma_desc: "Tomate, mozzarella e presunto curado.",
+    pinsa_quattroformaggi_desc: "Queijo azul, mozzarella, provola e brie.",
+    pinsa_diavola_desc: "Tomate, mozzarella e salame picante.",
+    pinsa_capricciosa_desc: "Tomate, mozzarella, fiambre, ovo, azeitonas, alcachofras e cogumelos.",
+    pinsa_boscaiola_desc: "Mozzarella, cogumelos e salsicha.",
+    pinsa_salsicciaepatate_desc: "Mozzarella, salsicha, batatas assadas e alecrim.",
+    pinsa_tonno_desc: "Tomate, mozzarella, atum, cebola e alcaparras.",
+    pinsa_rustica_desc: "Tomate, mozzarella, salsicha e chicória salteada.",
+    pinsa_bufalina_desc: "Tomate cherry fresco, mozzarella, mozzarella de búfala e manjericão.",
+    pinsa_salmone_desc: "Mozzarella, salmão fumado e rúcula.",
+    pinsa_crostino_desc: "Mozzarella, fiambre e azeite virgem extra.",
+
+    ins_garbatella_desc: "Mistura de folhas, atum, milho, ovo cozido, azeitonas, tomate e cenoura.",
+    ins_testaccio_desc: "Rúcula, bresaola, Grana, azeitonas e beringela.",
+    ins_borgo_desc: "Rúcula, salmão fumado, feta, citrinos e nozes.",
+    trastevere_desc: "Mistura de folhas, mozzarella de búfala, tomate, azeitonas, milho e curgete.",
+
+    tiramisu_desc: "Tiramisù espresso “Tonnarello” com bolachas Gentilini.",
+    cheesecake_bosco_desc: "Cheesecake de frutos vermelhos.",
+    cheesecake_desc: "Cheesecake com Nutella.",
+    pannacotta_desc: "Panna cotta com morangos.",
+    salame_desc: "Salame de chocolate caseiro.",
+    tortino_desc: "Bolo de chocolate com coração quente.",
+    gelato_desc: "Gelado de creme “affogato” com espresso."
+  },
+    fr: {
     carciofo_desc: "Plat typique de la tradition romaine.",
     patate_desc: "Nos pommes de terre au fromage et au poivre.",
     tris_desc: "Sélection de bruschettas : tomate ; mozzarella et jambon cru ; mozzarella et anchois.",
@@ -1988,7 +2084,6 @@ pt: {
     tortino_desc: "초콜릿 퐁당 케이크.",
     gelato_desc: "에스프레소를 곁들인 크림 젤라또(아포가토)."
   },
-
   ja: {
     carciofo_desc: "ローマの伝統料理です。",
     patate_desc: "チーズと黒胡椒で和えたポテトです。",
@@ -2007,8 +2102,8 @@ pt: {
     amatriciana_desc: "卵入り生パスタ：グアンチャーレとトマト。",
     gricia_desc: "卵入り生パスタ：グアンチャーレ、ペコリーノロマーノ、胡椒。",
     polpettepasta_desc: "卵入り生パスタ：ミートボールソース。",
-    lasagna_desc: "プロヴォラとグラナ・パダーノ（DOP）。",
-    pesto_desc: "リガトーニのペスト。",
+    lasagna_desc: "ラグーのラザニア（プロヴォラとグラナ・パダーノDOP）。",
+    pesto_desc: "リガトーニのペスト（松の実とミニトマト）。",
 
     baccala_desc: "塩ダラのミートボール マリナーラソース。",
     polpettecacio_desc: "牛肉ミートボール（チーズ&胡椒のフィリング＆ソース）。",
@@ -2020,7 +2115,7 @@ pt: {
     tagliata_desc: "牛肉のタリアータ ルッコラ、グラナ、ミニトマト添え。",
     straccetti_desc: "牛肉のストラチェッティ（ワインソース）ルッコラとグラナ、ローストポテト添え。",
     coda_desc: "コーダ・アッラ・ヴァッチナーラ（牛尾煮込み）マッシュポテト添え。",
-    pollo_desc: "鶏肉のパプリカ煮 ローストポテトとトマト。",
+    pollo_desc: "鶏肉とパプリカ、ローストポテト、トマト。",
     abbacchio_desc: "仔羊のオーブン焼き ポテト添え。",
     cotoletta_desc: "カツレツ フライドポテト添え。",
 
@@ -2059,8 +2154,7 @@ pt: {
     salame_desc: "自家製チョコサラミ。",
     tortino_desc: "フォンダンショコラ。",
     gelato_desc: "エスプレッソをかけたクリームジェラート（アフォガート）。"
-  },
-
+  }, 
   zh: {
     carciofo_desc: "罗马传统经典菜。",
     patate_desc: "奶酪黑胡椒风味土豆。",
@@ -2079,8 +2173,8 @@ pt: {
     amatriciana_desc: "新鲜鸡蛋面配腮颊肉和番茄。",
     gricia_desc: "新鲜鸡蛋面配腮颊肉、罗马佩科里诺奶酪和黑胡椒。",
     polpettepasta_desc: "新鲜鸡蛋面配肉丸酱。",
-    lasagna_desc: "烟熏普罗沃拉奶酪与帕达诺格拉纳（DOP）。",
-    pesto_desc: "青酱通心粉（Rigatoni）。",
+    lasagna_desc: "肉酱千层面（烟熏普罗沃拉与格拉纳帕达诺DOP）。",
+    pesto_desc: "青酱通心粉（配松子和小番茄）。",
 
     baccala_desc: "鳕鱼肉丸配玛丽娜拉酱。",
     polpettecacio_desc: "牛肉丸（奶酪黑胡椒内馅与酱）。",
@@ -2094,7 +2188,7 @@ pt: {
     coda_desc: "牛尾炖菜（Vaccinara）配土豆泥。",
     pollo_desc: "鸡肉配彩椒、烤土豆和番茄。",
     abbacchio_desc: "烤羊肉配土豆。",
-    cotoletta_desc: "炸猪排配薯条。",
+    cotoletta_desc: "炸肉排配薯条。",
 
     cicoria_desc: "蒜香辣椒炒菊苣。",
     insalata_pomodori_desc: "生菜沙拉配番茄。",
@@ -2120,25 +2214,24 @@ pt: {
     pinsa_crostino_desc: "马苏里拉奶酪、熟火腿、特级初榨橄榄油。",
 
     ins_garbatella_desc: "混合生菜、金枪鱼、玉米、水煮蛋、橄榄、番茄、胡萝卜。",
-    ins_testaccio_desc: "芝麻菜、风干牛肉 风干牛肉、格拉纳奶酪、橄榄、茄子。",
+    ins_testaccio_desc: "芝麻菜、风干牛肉、格拉纳奶酪、橄榄、茄子。",
     ins_borgo_desc: "芝麻菜、烟熏三文鱼、菲达奶酪、柑橘、核桃。",
     trastevere_desc: "混合生菜、水牛马苏里拉、番茄、橄榄、玉米、西葫芦。",
 
     tiramisu_desc: "“Tonnarello” 浓缩咖啡提拉米苏（配 Gentilini 饼干）。",
-    cheesecake_bosco_desc: "森林莓果芝士蛋糕。",
-    cheesecake_desc: "榛子巧克力酱（Nutella）芝士蛋糕。",
+    cheesecake_bosco_desc: "莓果芝士蛋糕。",
+    cheesecake_desc: "Nutella 榛子巧克力酱芝士蛋糕。",
     pannacotta_desc: "草莓奶冻。",
     salame_desc: "自制巧克力“香肠”。",
     tortino_desc: "流心巧克力蛋糕。",
-    gelato_desc: "意式冰淇淋 意式浓缩咖啡浸泡的奶油冰淇淋"
+    gelato_desc: "奶油冰淇淋配浓缩咖啡（Affogato）。"
   },
-
-  ar: {
+    ar: {
     carciofo_desc: "طبق تقليدي من المطبخ الروماني.",
     patate_desc: "بطاطسنا بجبن وفلفل أسود.",
     tris_desc: "تشكيلة بروشيتا: طماطم؛ موزاريلا مع بروشوتو؛ موزاريلا مع أنشوجة.",
     suppli_desc: "سوبلي صغير مشكّل (8 قطع): أوماتريتشيانا، راغو، جبن وفلفل، وكروكيت بطاطس.",
-    calamari_desc: "كalamari مقلي ومقرمش.",
+    calamari_desc: "كالاماري مقلي ومقرمش.",
     tagliere_desc: "تشكيلة لحوم باردة وأجبان.",
     caprese_desc: "موزاريلا جاموس مع طماطم.",
     prosciutto_desc: "بروشوتو مع موزاريلا جاموس.",
@@ -2151,8 +2244,8 @@ pt: {
     amatriciana_desc: "باستا طازجة بالبيض مع غوانتشالي وطماطم.",
     gricia_desc: "باستا طازجة بالبيض مع غوانتشالي وبيكورينو رومانو وفلفل.",
     polpettepasta_desc: "باستا طازجة بالبيض مع صلصة كرات اللحم.",
-    lasagna_desc: "بروفولا مدخنة وجرانا بادانو (DOP).",
-    pesto_desc: "ريغاتوني بصلصة البيستو.",
+    lasagna_desc: "لازانيا راغو مع بروفولا وجرانا بادانو (DOP).",
+    pesto_desc: "ريغاتوني بصلصة البيستو (مع صنوبر وطماطم كرزية).",
 
     baccala_desc: "كرات لحم سمك القد مع صلصة مارينارا.",
     polpettecacio_desc: "كرات لحم بقر بحشوة وصلصة جبن وفلفل.",
@@ -2166,7 +2259,7 @@ pt: {
     coda_desc: "ذيل بقر على طريقة فاتشينارا مع بوريه بطاطس.",
     pollo_desc: "دجاج مع فلفل وبطاطس بالفرن وطماطم.",
     abbacchio_desc: "لحم ضأن بالفرن مع بطاطس.",
-    cotoletta_desc: "شنيتسل/كوتوليتا مغطاة بالبقسماط مع بطاطس مقلية.",
+    cotoletta_desc: "كوتوليتا مغطاة بالبقسماط مع بطاطس مقلية.",
 
     cicoria_desc: "هندباء (شيكوريا) مشوحة بالثوم والفلفل الحار.",
     insalata_pomodori_desc: "سلطة خضراء مع طماطم.",
@@ -2204,8 +2297,8 @@ pt: {
     tortino_desc: "كيك شوكولاتة بقلب سائل.",
     gelato_desc: "جيلاتو كريما “أفوغاتو” مع إسبريسو."
   }
-};
-      function renderAllergens(lang){
+  // ===== Render griglia allergeni =====
+  function renderAllergens(lang){
     const a = ALLERGENS[lang] || ALLERGENS.it;
     const grid = document.getElementById("allergenGrid");
     if(!grid) return;
@@ -2219,31 +2312,34 @@ pt: {
   }
 
   // ===== Estrae allergeni UNA VOLTA dalle descrizioni HTML e li salva in data-allergens =====
-  function extractAllergensToDataset(){
-    document.querySelectorAll(".card").forEach(card => {
-      const desc = card.querySelector(".desc");
-      if(!desc) return;
+ function extractAllergensToDataset(){
+  document.querySelectorAll(".card").forEach(card => {
+    const desc = card.querySelector(".desc");
+    if(!desc) return;
 
-      if (card.dataset.allergens && card.dataset.allergens.length) return; // ✅ una sola volta
+    // una sola volta
+    if (card.dataset.allergens && card.dataset.allergens.length) return;
 
-      const text = (desc.textContent || "").trim();
-      const m = text.match(/(\b\d{1,2}(?:-\d{1,2})*\b)\s*\.?\s*$/);
-      if(!m) return;
+    const text = (desc.textContent || "").trim();
 
-      const nums = m[1].trim();
-      if(!nums) return;
+    // ✅ prende l’ultima parte tipo "1-4-14." oppure "1 - 4 - 14 ." (spazi inclusi)
+    const m = text.match(/(\d{1,2}(?:\s*-\s*\d{1,2})*)\s*\.?\s*$/);
+    if(!m) return;
 
-      card.dataset.allergens = nums;
-      desc.textContent = text.replace(m[0], "").trim();
-    });
-  }
+    const nums = m[1].replace(/\s*/g, "").trim(); // ✅ normalizza: "1 - 4 - 14" -> "1-4-14"
+    if(!nums) return;
 
+    card.dataset.allergens = nums;
+    desc.textContent = text.replace(m[0], "").trim(); // ✅ toglie i numeri dal testo
+  });
+}
   // ===== Crea pillole allergeni dai data-allergens =====
   function buildAllergenPills(){
     document.querySelectorAll(".card").forEach(card => {
       const row = card.querySelector(".row");
       if(!row) return;
 
+      // rimuovi eventuale pillola precedente
       const old = row.querySelector(".allergen-pill");
       if(old) old.remove();
 
@@ -2254,6 +2350,7 @@ pt: {
       const price = row.querySelector(".price");
       if(!tag || !price) return;
 
+      // crea contenitore sinistro (tag + pillola)
       let left = row.querySelector(".meta-left");
       if(!left){
         left = document.createElement("span");
@@ -2261,6 +2358,7 @@ pt: {
         row.insertBefore(left, price);
         left.appendChild(tag);
       } else {
+        // se tag non è dentro left, spostalo
         if(tag.parentElement !== left){
           left.insertBefore(tag, left.firstChild);
         }
@@ -2269,15 +2367,9 @@ pt: {
       const pill = document.createElement("span");
       pill.className = "allergen-pill";
       pill.textContent = nums;
-      left.insertBefore(pill, left.children[1] || null);
-    });
-  }
 
-  // ===== Foto cliccabili =====
-  function markDishPhotos(){
-    document.querySelectorAll(".card").forEach(card => {
-      const topImg = card.querySelector("img");
-      if(topImg) topImg.classList.add("dish-photo");
+      // metti pillola subito dopo il tag
+      left.insertBefore(pill, left.children[1] || null);
     });
   }
 
@@ -2286,7 +2378,7 @@ pt: {
     document.documentElement.lang = lang;
     document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
 
-    // UI
+    // UI texts
     const ui = UI[lang] || UI.it;
     document.querySelectorAll("[data-ui]").forEach(el => {
       const key = el.getAttribute("data-ui");
@@ -2308,26 +2400,28 @@ pt: {
     if(txt && a && a.text) txt.textContent = a.text;
 
     renderAllergens(lang);
-
-    // pillole (usano data-allergens già salvato)
     buildAllergenPills();
 
     safeSet("menu_lang", lang);
   }
 
   // ===== FALLBACK immagini mancanti =====
-  function attachImageFallback(){
-    document.querySelectorAll(".card img").forEach(img => {
-      img.addEventListener("error", () => {
-        if (img.dataset.fallbackApplied) return;
-        img.dataset.fallbackApplied = "1";
-        img.src = PLACEHOLDER_SRC;
-        img.style.objectFit = "contain";
-        img.style.background = "#fff";
-        img.style.cursor = "default";
-      });
+function attachImageFallback(){
+  document.querySelectorAll(".card img").forEach(img => {
+    img.addEventListener("error", () => {
+      if (img.dataset.fallbackApplied) return;
+      img.dataset.fallbackApplied = "1";
+
+      img.src = PLACEHOLDER_SRC;
+      img.style.objectFit = "contain";
+      img.style.background = "#fff";
+      img.style.cursor = "default";
+
+      // ✅ importantissimo: niente zoom/lightbox sul placeholder
+      img.dataset.noZoom = "1";
     });
-  }
+  });
+}
 
   // ===== LIGHTBOX =====
   const lb = document.getElementById("lightbox");
@@ -2335,7 +2429,8 @@ pt: {
   const lbClose = document.getElementById("lbClose");
 
   function openLightbox(src, alt){
-    if (src && src.startsWith("data:image/svg+xml")) return;
+    if (!src) return;
+    if (src.startsWith("data:image/svg+xml")) return;
     lbImg.src = src;
     lbImg.alt = alt || "";
     lb.classList.add("open");
@@ -2354,33 +2449,38 @@ pt: {
     const select = document.getElementById("langSelect");
     const saved = safeGet("menu_lang") || "it";
 
+    // immagini
+    attachImageFallback();
+
+    // estrai numeri allergeni UNA VOLTA (sul testo originale, prima delle traduzioni)
+    extractAllergensToDataset();
+
+    // lingua iniziale
     if (select){
       select.value = saved;
 
       const onLang = (e) => applyLang(e.target.value);
       select.addEventListener("change", onLang);
-      select.addEventListener("input", onLang); // ✅ mobile
+      select.addEventListener("input", onLang); // mobile
     }
+    applyLang(saved);
 
-    attachImageFallback();
-    markDishPhotos();
+    // click immagini => lightbox
+document.addEventListener("click", (e) => {
+  const img = e.target.closest(".card img");
+  if(!img) return;
 
-    document.addEventListener("click", (e) => {
-      const img = e.target.closest("img.dish-photo");
-      if(!img) return;
-      openLightbox(img.getAttribute("src"), img.getAttribute("alt"));
-    });
+  // ✅ blocca zoom se è placeholder
+  if(img.dataset.noZoom === "1") return;
+
+  openLightbox(img.getAttribute("src"), img.getAttribute("alt"));
+});
 
     lbClose && lbClose.addEventListener("click", closeLightbox);
     lb && lb.addEventListener("click", (e) => { if(e.target === lb) closeLightbox(); });
     document.addEventListener("keydown", (e) => { if(e.key === "Escape") closeLightbox(); });
-
-    // ✅ prima estrai numeri allergeni una volta (dal testo HTML originale)
-    extractAllergensToDataset();
-
-    // ✅ poi applica lingua (UI + descrizioni + griglia allergeni + pillole)
-    applyLang(saved);
   });
   </script>
+
 </body>
 </html>
