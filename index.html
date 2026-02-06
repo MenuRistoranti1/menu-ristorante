@@ -368,6 +368,23 @@
       font-weight: 800;
       line-height: 1.2;
     }
+      /* ===== RTL (Arabic) ===== */
+  html[dir="rtl"] body { direction: rtl; }
+
+  html[dir="rtl"] .topbar { justify-content: flex-start; }
+
+  html[dir="rtl"] .hero-card,
+  html[dir="rtl"] .panel,
+  html[dir="rtl"] .allergens-box,
+  html[dir="rtl"] footer { text-align: right; }
+
+  html[dir="rtl"] .name { justify-content: flex-start; }
+
+  html[dir="rtl"] .row { flex-direction: row-reverse; }
+  html[dir="rtl"] .price { margin-left: 0; margin-right: auto; }
+
+  html[dir="rtl"] .meta-left { flex-direction: row-reverse; }
+    html[dir="rtl"] .lightbox .close{ right:auto; left:14px; }
   </style>
 </head>
 
@@ -419,7 +436,7 @@
             <img src="./img/piatti/carciofoallagiudia.jpeg" alt="Carciofo alla Giudia">
             <div class="content">
               <p class="name"><span>Carciofo alla Giudia</span></p>
-              <p class="desc" data-desc-key="carciofo_desc">Piatto tipico della tradizione Romana 1-4-14.</p>
+              <p class="desc" data-desc-key="carciofo_desc">Piatto tipico della tradizione Romana, carciofo croccante 1-4-14.</p>
               <div class="row"><span class="tag" data-ui="tag_antipasto">Antipasto</span><span class="price">€ 9,5</span></div>
             </div>
           </div>
@@ -437,7 +454,7 @@
             <img src="./img/piatti/trisbruschette.png" alt="Tris di Bruschette">
             <div class="content">
               <p class="name"><span>Tris di Bruschette</span></p>
-              <p class="desc" data-desc-key="tris_desc">Selezione di bruschette, Pomodoro, Mozzarella e Prosciutto Cruco, Mozzarella e Alici  1-4-7.</p>
+              <p class="desc" data-desc-key="tris_desc">Selezione di bruschette, Pomodoro, Mozzarella e Prosciutto Crudo, Mozzarella e Alici  1-4-7.</p>
               <div class="row"><span class="tag" data-ui="tag_antipasto">Antipasto</span><span class="price">€ 9,5</span></div>
             </div>
           </div>
@@ -1435,10 +1452,8 @@ const UI = {
   }
 };
 
-/* ===== DESC (usa le tue descrizioni: qui metto SOLO IT+EN per non far esplodere il messaggio)
-   Se vuoi, puoi ri-incollare ES/PT/FR/KO/JA/ZH/AR dentro, ma IMPORTANTISSIMO: deve finire con "};"
-*/
 const DESC = {
+  const DESC = {
   it: {
     carciofo_desc: "Piatto tipico della tradizione Romana.",
     patate_desc: "Le nostre patate cacio e pepe.",
@@ -1450,17 +1465,68 @@ const DESC = {
     prosciutto_desc: "Prosciutto crudo e mozzarella di latte di bufala.",
     focaccia_desc: "Focaccia calda, olio EVO e rosmarino.",
     marinara_desc: "Pomodoro, aglio e origano.",
+
     tonn_caciopepe_desc: "Pasta fresca all'uovo con cacio e pepe.",
     carbonara_desc: "Pasta fresca all'uovo con guanciale, uovo e pecorino.",
     nonnanadia_desc: "Pasta fresca all'uovo con melanzane, olive, capperi e pomodorini.",
     amatriciana_desc: "Pasta fresca all'uovo con guanciale e pomodoro.",
     gricia_desc: "Pasta fresca all'uovo con guanciale, pecorino romano e pepe.",
     polpettepasta_desc: "Pasta fresca all'uovo con sugo di polpette.",
-    lasagna_desc: "Provola e Grana Padano dop.",
+    lasagna_desc: "Provola e Grana Padano DOP.",
     pesto_desc: "Rigatoni con pesto.",
-    // ... (puoi tenere tutte le altre tue chiavi IT qui dentro)
+
+    baccala_desc: "Polpette di baccalà con salsa marinara.",
+    polpettecacio_desc: "Polpette di manzo con ripieno e salsa cacio e pepe.",
+    polpettesugo_desc: "Al sugo di mamma.",
+    polpette_vaccinara_desc: "Polpette in stile vaccinara.",
+    polpette_melanzane_desc: "Polpette di melanzane e patate.",
+
+    saltimbocca_desc: "Fettine di maiale con prosciutto crudo e purè di patate.",
+    tagliata_desc: "Tagliata di manzo con rucola, grana e pomodorini.",
+    straccetti_desc: "Straccetti di manzo al vino con rucola e grana e con patate al forno.",
+    coda_desc: "Coda alla vaccinara con purè di patate.",
+    pollo_desc: "Pollo con peperoni, patate al forno e pomodoro.",
+    abbacchio_desc: "Abbacchio al forno con patate.",
+    cotoletta_desc: "Cotoletta panata con patate fritte.",
+
+    cicoria_desc: "Cicoria ripassata in padella con aglio e peperoncino.",
+    insalata_pomodori_desc: "Insalata verde con pomodori.",
+    patate_forno_desc: "Patate al forno.",
+    patate_fritte_desc: "Patate fritte.",
+    pure_desc: "Purè di patate.",
+
+    pinsa_margherita_desc: "Pomodoro, mozzarella e basilico.",
+    pinsa_funghi_desc: "Pomodoro, mozzarella e funghi.",
+    pinsa_cacioepepe_desc: "Mozzarella, cacio e pepe.",
+    pinsa_contadina_desc: "Pomodoro, mozzarella, zucchine, melanzane e peperoni.",
+    pinsa_napoli_desc: "Pomodoro, mozzarella, alici e origano.",
+    pinsa_parma_desc: "Pomodoro, mozzarella e prosciutto crudo.",
+    pinsa_quattroformaggi_desc: "Formaggio erborinato, mozzarella, provola, brie.",
+    pinsa_diavola_desc: "Pomodoro, mozzarella e salame piccante.",
+    pinsa_capricciosa_desc: "Pomodoro, mozzarella, prosciutto cotto, uovo, olive, carciofini e funghi.",
+    pinsa_boscaiola_desc: "Mozzarella, funghi e salsiccia.",
+    pinsa_salsicciaepatate_desc: "Mozzarella, salsiccia, patate al forno e rosmarino.",
+    pinsa_tonno_desc: "Pomodoro, mozzarella, tonno, cipolla e capperi.",
+    pinsa_rustica_desc: "Pomodoro, mozzarella, salsiccia e cicoria ripassata.",
+    pinsa_bufalina_desc: "Pomodorini freschi, mozzarella, mozzarella di latte di bufala e basilico.",
+    pinsa_salmone_desc: "Mozzarella, salmone affumicato e rucola.",
+    pinsa_crostino_desc: "Mozzarella, prosciutto cotto e olio EVO.",
+
+    ins_garbatella_desc: "Misticanza, tonno, mais, uovo sodo, olive, pomodori, carote.",
+    ins_testaccio_desc: "Rucola, bresaola, grana, olive, melanzane.",
+    ins_borgo_desc: "Rucola, salmone affumicato, feta, agrumi, noci.",
+    trastevere_desc: "Misticanza, mozzarella di latte di bufala, pomodori, olive, mais, zucchine.",
+
+    tiramisu_desc: "Tiramisù espresso “Tonnarello” con biscotti Gentilini.",
+    cheesecake_bosco_desc: "Cheesecake ai frutti di bosco.",
+    cheesecake_desc: "Cheesecake con Nutella.",
+    pannacotta_desc: "Pannacotta con fragole.",
+    salame_desc: "Salame di cioccolato fatto in casa.",
+    tortino_desc: "Tortino al cioccolato con cuore caldo.",
+    gelato_desc: "Gelato alla crema affogato al caffè espresso."
   },
-  en: {
+
+   en: {
     carciofo_desc: "A traditional dish from Roman cuisine.",
     patate_desc: "Our potatoes with pecorino cheese and black pepper.",
     tris_desc: "Selection of bruschetta: tomato; mozzarella and cured ham; mozzarella and anchovies.",
@@ -1471,10 +1537,563 @@ const DESC = {
     prosciutto_desc: "Cured ham and buffalo mozzarella.",
     focaccia_desc: "Warm focaccia with extra virgin olive oil and rosemary.",
     marinara_desc: "Tomato, garlic and oregano.",
+
     tonn_caciopepe_desc: "Fresh egg pasta with pecorino cheese and black pepper.",
     carbonara_desc: "Fresh egg pasta with guanciale, egg and pecorino cheese.",
-    // ...
+    nonnanadia_desc: "Fresh egg pasta with eggplant, olives, capers and cherry tomatoes.",
+    amatriciana_desc: "Fresh egg pasta with guanciale and tomato.",
+    gricia_desc: "Fresh egg pasta with guanciale, Pecorino Romano and black pepper.",
+    polpettepasta_desc: "Fresh egg pasta with meatball sauce.",
+    lasagna_desc: "Lasagna with provola and Grana Padano PDO.",
+    pesto_desc: "Rigatoni with pesto.",
+
+    baccala_desc: "Salt cod meatballs with marinara sauce.",
+    polpettecacio_desc: "Beef meatballs with a cheese & pepper filling and sauce.",
+    polpettesugo_desc: "In mom’s tomato sauce.",
+    polpette_vaccinara_desc: "Meatballs Vaccinara-style.",
+    polpette_melanzane_desc: "Eggplant and potato meatballs.",
+
+    saltimbocca_desc: "Pork slices with cured ham and mashed potatoes.",
+    tagliata_desc: "Sliced beef steak with arugula, Grana cheese and cherry tomatoes.",
+    straccetti_desc: "Beef strips in wine sauce with arugula, Grana cheese and roasted potatoes.",
+    coda_desc: "Oxtail stew (Vaccinara) with mashed potatoes.",
+    pollo_desc: "Chicken with peppers, roasted potatoes and tomato.",
+    abbacchio_desc: "Oven-baked lamb with potatoes.",
+    cotoletta_desc: "Breaded cutlet with French fries.",
+
+    cicoria_desc: "Sautéed chicory with garlic and chili pepper.",
+    insalata_pomodori_desc: "Green salad with tomatoes.",
+    patate_forno_desc: "Roasted potatoes.",
+    patate_fritte_desc: "French fries.",
+    pure_desc: "Mashed potatoes.",
+
+    pinsa_margherita_desc: "Tomato, mozzarella and basil.",
+    pinsa_funghi_desc: "Tomato, mozzarella and mushrooms.",
+    pinsa_cacioepepe_desc: "Mozzarella, pecorino cheese and black pepper.",
+    pinsa_contadina_desc: "Tomato, mozzarella, zucchini, eggplant and peppers.",
+    pinsa_napoli_desc: "Tomato, mozzarella, anchovies and oregano.",
+    pinsa_parma_desc: "Tomato, mozzarella and cured ham.",
+    pinsa_quattroformaggi_desc: "Blue cheese, mozzarella, provola and brie.",
+    pinsa_diavola_desc: "Tomato, mozzarella and spicy salami.",
+    pinsa_capricciosa_desc: "Tomato, mozzarella, cooked ham, egg, olives, artichokes and mushrooms.",
+    pinsa_boscaiola_desc: "Mozzarella, mushrooms and sausage.",
+    pinsa_salsicciaepatate_desc: "Mozzarella, sausage, roasted potatoes and rosemary.",
+    pinsa_tonno_desc: "Tomato, mozzarella, tuna, onion and capers.",
+    pinsa_rustica_desc: "Tomato, mozzarella, sausage and sautéed chicory.",
+    pinsa_bufalina_desc: "Fresh cherry tomatoes, mozzarella, buffalo mozzarella and basil.",
+    pinsa_salmone_desc: "Mozzarella, smoked salmon and arugula.",
+    pinsa_crostino_desc: "Mozzarella, cooked ham and extra virgin olive oil.",
+
+    ins_garbatella_desc: "Mixed greens, tuna, corn, hard-boiled egg, olives, tomatoes, carrots.",
+    ins_testaccio_desc: "Arugula, bresaola, Grana cheese, olives, eggplant.",
+    ins_borgo_desc: "Arugula, smoked salmon, feta, citrus fruit, walnuts.",
+    trastevere_desc: "Mixed greens, buffalo mozzarella, tomatoes, olives, corn, zucchini.",
+
+    tiramisu_desc: "“Tonnarello” espresso tiramisù with Gentilini biscuits.",
+    cheesecake_bosco_desc: "Mixed berries cheesecake.",
+    cheesecake_desc: "Nutella cheesecake.",
+    pannacotta_desc: "Panna cotta with strawberries.",
+    salame_desc: "Homemade chocolate salami.",
+    tortino_desc: "Chocolate lava cake.",
+    gelato_desc: "Custard gelato “affogato” with espresso."
   }
+     es: {
+    carciofo_desc: "Plato típico de la tradición romana.",
+    patate_desc: "Patatas con queso pecorino y pimienta.",
+    tris_desc: "Selección de bruschettas (pan tostado).",
+    suppli_desc: "Mini supplì variados (8 uds).",
+    calamari_desc: "Calamares fritos dorados.",
+    tagliere_desc: "Selección de embutidos y quesos.",
+    caprese_desc: "Mozzarella de búfala y tomate.",
+    prosciutto_desc: "Jamón curado y mozzarella de búfala.",
+    focaccia_desc: "Focaccia caliente con AOVE y romero.",
+    marinara_desc: "Tomate, ajo y orégano.",
+
+    tonn_caciopepe_desc: "Pasta fresca con pecorino y pimienta.",
+    carbonara_desc: "Pasta fresca con guanciale, huevo y pecorino.",
+    nonnanadia_desc: "Pasta fresca con berenjena, aceitunas, alcaparras y tomates cherry.",
+    amatriciana_desc: "Pasta fresca con guanciale y tomate.",
+    gricia_desc: "Pasta fresca con guanciale, pecorino y pimienta.",
+    polpettepasta_desc: "Pasta fresca con salsa de albóndigas.",
+    lasagna_desc: "Lasaña con provola y Grana Padano.",
+    pesto_desc: "Rigatoni con pesto.",
+
+    baccala_desc: "Albóndigas de bacalao con salsa marinara.",
+    polpettecacio_desc: "Albóndigas de ternera con relleno y salsa de queso y pimienta.",
+    polpettesugo_desc: "En salsa de tomate casera.",
+    polpette_vaccinara_desc: "Albóndigas al estilo vaccinara.",
+    polpette_melanzane_desc: "Albóndigas de berenjena y patata.",
+
+    saltimbocca_desc: "Cerdo con jamón curado y puré de patatas.",
+    tagliata_desc: "Tagliata de ternera con rúcula, grana y tomates cherry.",
+    straccetti_desc: "Tiras de ternera al vino con rúcula, grana y patatas al horno.",
+    coda_desc: "Rabo de buey a la vaccinara con puré de patatas.",
+    pollo_desc: "Pollo con pimientos, patatas al horno y tomate.",
+    abbacchio_desc: "Cordero al horno con patatas.",
+    cotoletta_desc: "Milanesa empanada con patatas fritas.",
+
+    cicoria_desc: "Achicoria salteada con ajo y guindilla.",
+    insalata_pomodori_desc: "Ensalada verde con tomates.",
+    patate_forno_desc: "Patatas al horno.",
+    patate_fritte_desc: "Patatas fritas.",
+    pure_desc: "Puré de patatas.",
+
+    pinsa_margherita_desc: "Tomate, mozzarella y albahaca.",
+    pinsa_funghi_desc: "Tomate, mozzarella y setas.",
+    pinsa_cacioepepe_desc: "Mozzarella, queso y pimienta.",
+    pinsa_contadina_desc: "Tomate, mozzarella, calabacín, berenjena y pimientos.",
+    pinsa_napoli_desc: "Tomate, mozzarella, anchoas y orégano.",
+    pinsa_parma_desc: "Tomate, mozzarella y jamón curado.",
+    pinsa_quattroformaggi_desc: "Queso azul, mozzarella, provola y brie.",
+    pinsa_diavola_desc: "Tomate, mozzarella y salami picante.",
+    pinsa_capricciosa_desc: "Tomate, mozzarella, jamón cocido, huevo, aceitunas, alcachofas y setas.",
+    pinsa_boscaiola_desc: "Mozzarella, setas y salchicha.",
+    pinsa_salsicciaepatate_desc: "Mozzarella, salchicha, patatas al horno y romero.",
+    pinsa_tonno_desc: "Tomate, mozzarella, atún, cebolla y alcaparras.",
+    pinsa_rustica_desc: "Tomate, mozzarella, salchicha y achicoria salteada.",
+    pinsa_bufalina_desc: "Tomates cherry, mozzarella, mozzarella de búfala y albahaca.",
+    pinsa_salmone_desc: "Mozzarella, salmón ahumado y rúcula.",
+    pinsa_crostino_desc: "Mozzarella, jamón cocido y AOVE.",
+
+    ins_garbatella_desc: "Hojas mixtas, atún, maíz, huevo duro, aceitunas, tomates, zanahorias.",
+    ins_testaccio_desc: "Rúcula, bresaola, grana, aceitunas, berenjena.",
+    ins_borgo_desc: "Rúcula, salmón ahumado, feta, cítricos, nueces.",
+    trastevere_desc: "Hojas mixtas, mozzarella de búfala, tomates, aceitunas, maíz, calabacín.",
+
+    tiramisu_desc: "Tiramisú espresso “Tonnarello” con galletas Gentilini.",
+    cheesecake_bosco_desc: "Cheesecake de frutos del bosque.",
+    cheesecake_desc: "Cheesecake con Nutella.",
+    pannacotta_desc: "Panna cotta con fresas.",
+    salame_desc: "Salami de chocolate casero.",
+    tortino_desc: "Bizcocho de chocolate con corazón fundente.",
+    gelato_desc: "Helado de crema “affogato” con espresso."
+  },
+    pt: {
+  carciofo_desc: "Prato típico da tradição romana.",
+  patate_desc: "As nossas batatas com queijo e pimenta.",
+  tris_desc: "Seleção de bruschettas: tomate; mozzarella e presunto curado; mozzarella e anchovas.",
+  suppli_desc: "Mini supplì: Amatriciana, ragù, cacio e pepe e croquete de batata (8 unid.).",
+  calamari_desc: "Lulas fritas douradas.",
+  tagliere_desc: "Seleção de enchidos e queijos.",
+  caprese_desc: "Mozzarella de búfala e tomate.",
+  prosciutto_desc: "Presunto curado e mozzarella de búfala.",
+  focaccia_desc: "Focaccia quente com azeite virgem extra e alecrim.",
+  marinara_desc: "Tomate, alho e orégãos.",
+
+  tonn_caciopepe_desc: "Massa fresca com ovo com queijo pecorino e pimenta preta.",
+  carbonara_desc: "Massa fresca com ovo com guanciale, ovo e queijo pecorino.",
+  nonnanadia_desc: "Massa fresca com ovo com beringela, azeitonas, alcaparras e tomate cherry.",
+  amatriciana_desc: "Massa fresca com ovo com guanciale e tomate.",
+  gricia_desc: "Massa fresca com ovo com guanciale, Pecorino Romano e pimenta.",
+  polpettepasta_desc: "Massa fresca com ovo com molho de almôndegas.",
+  lasagna_desc: "Provola e Grana Padano DOP.",
+  pesto_desc: "Rigatoni com pesto.",
+
+  baccala_desc: "Almôndegas de bacalhau com molho marinara.",
+  polpettecacio_desc: "Almôndegas de carne com recheio e molho de cacio e pepe.",
+  polpettesugo_desc: "No molho de tomate da mãe.",
+  polpette_vaccinara_desc: "Almôndegas ao estilo vaccinara.",
+  polpette_melanzane_desc: "Almôndegas de beringela e batata.",
+
+  saltimbocca_desc: "Fatias de porco com presunto curado e puré de batata.",
+  tagliata_desc: "Tagliata de vaca com rúcula, Grana e tomate cherry.",
+  straccetti_desc: "Tiras de vaca ao vinho com rúcula, Grana e batatas assadas.",
+  coda_desc: "Rabo de boi à vaccinara com puré de batata.",
+  pollo_desc: "Frango com pimentos, batatas assadas e tomate.",
+  abbacchio_desc: "Borrego assado no forno com batatas.",
+  cotoletta_desc: "Costeleta panada com batatas fritas.",
+
+  cicoria_desc: "Chicória salteada com alho e malagueta.",
+  insalata_pomodori_desc: "Salada verde com tomate.",
+  patate_forno_desc: "Batatas assadas.",
+  patate_fritte_desc: "Batatas fritas.",
+  pure_desc: "Puré de batata.",
+
+  pinsa_margherita_desc: "Tomate, mozzarella e manjericão.",
+  pinsa_funghi_desc: "Tomate, mozzarella e cogumelos.",
+  pinsa_cacioepepe_desc: "Mozzarella, queijo e pimenta.",
+  pinsa_contadina_desc: "Tomate, mozzarella, curgete, beringela e pimentos.",
+  pinsa_napoli_desc: "Tomate, mozzarella, anchovas e orégãos.",
+  pinsa_parma_desc: "Tomate, mozzarella e presunto curado.",
+  pinsa_quattroformaggi_desc: "Queijo azul, mozzarella, provola e brie.",
+  pinsa_diavola_desc: "Tomate, mozzarella e salame picante.",
+  pinsa_capricciosa_desc: "Tomate, mozzarella, fiambre, ovo, azeitonas, alcachofras e cogumelos.",
+  pinsa_boscaiola_desc: "Mozzarella, cogumelos e salsicha.",
+  pinsa_salsicciaepatate_desc: "Mozzarella, salsicha, batatas assadas e alecrim.",
+  pinsa_tonno_desc: "Tomate, mozzarella, atum, cebola e alcaparras.",
+  pinsa_rustica_desc: "Tomate, mozzarella, salsicha e chicória salteada.",
+  pinsa_bufalina_desc: "Tomate cherry fresco, mozzarella, mozzarella de búfala e manjericão.",
+  pinsa_salmone_desc: "Mozzarella, salmão fumado e rúcula.",
+  pinsa_crostino_desc: "Mozzarella, fiambre e azeite virgem extra.",
+
+  ins_garbatella_desc: "Mistura de folhas, atum, milho, ovo cozido, azeitonas, tomate e cenoura.",
+  ins_testaccio_desc: "Rúcula, bresaola, Grana, azeitonas, beringela.",
+  ins_borgo_desc: "Rúcula, salmão fumado, feta, citrinos e nozes.",
+  trastevere_desc: "Mistura de folhas, mozzarella de búfala, tomate, azeitonas, milho, curgete.",
+
+  tiramisu_desc: "Tiramisù espresso “Tonnarello” com bolachas Gentilini.",
+  cheesecake_bosco_desc: "Cheesecake de frutos vermelhos.",
+  cheesecake_desc: "Cheesecake com Nutella.",
+  pannacotta_desc: "Panna cotta com morangos.",
+  salame_desc: "Salame de chocolate caseiro.",
+  tortino_desc: "Bolo de chocolate com coração quente.",
+  gelato_desc: "Gelado de creme “affogato” com espresso."
+},
+    fr: {
+  carciofo_desc: "Plat typique de la tradition romaine.",
+  patate_desc: "Nos pommes de terre au fromage et au poivre.",
+  tris_desc: "Sélection de bruschettas : tomate ; mozzarella et jambon cru ; mozzarella et anchois.",
+  suppli_desc: "Mini supplì : amatriciana, ragù, fromage & poivre et croquettes de pommes de terre (8 pièces).",
+  calamari_desc: "Calamars frits dorés.",
+  tagliere_desc: "Sélection de charcuteries et de fromages.",
+  caprese_desc: "Mozzarella de bufflonne et tomate.",
+  prosciutto_desc: "Jambon cru et mozzarella de bufflonne.",
+  focaccia_desc: "Focaccia chaude à l’huile d’olive vierge extra et romarin.",
+  marinara_desc: "Tomate, ail et origan.",
+
+  tonn_caciopepe_desc: "Pâtes fraîches aux œufs, pecorino et poivre noir.",
+  carbonara_desc: "Pâtes fraîches aux œufs avec guanciale, œuf et pecorino.",
+  nonnanadia_desc: "Pâtes fraîches aux œufs avec aubergines, olives, câpres et tomates cerises.",
+  amatriciana_desc: "Pâtes fraîches aux œufs avec guanciale et tomate.",
+  gricia_desc: "Pâtes fraîches aux œufs avec guanciale, pecorino romano et poivre.",
+  polpettepasta_desc: "Pâtes fraîches aux œufs avec sauce aux boulettes.",
+  lasagna_desc: "Provola et Grana Padano AOP.",
+  pesto_desc: "Rigatoni au pesto.",
+
+  baccala_desc: "Boulettes de morue avec sauce marinara.",
+  polpettecacio_desc: "Boulettes de bœuf avec farce et sauce fromage & poivre.",
+  polpettesugo_desc: "Dans la sauce tomate de maman.",
+  polpette_vaccinara_desc: "Boulettes façon vaccinara.",
+  polpette_melanzane_desc: "Boulettes d’aubergines et pommes de terre.",
+
+  saltimbocca_desc: "Tranches de porc avec jambon cru et purée de pommes de terre.",
+  tagliata_desc: "Tagliata de bœuf avec roquette, grana et tomates cerises.",
+  straccetti_desc: "Émincé de bœuf au vin avec roquette, grana et pommes de terre rôties.",
+  coda_desc: "Queue de bœuf à la vaccinara avec purée de pommes de terre.",
+  pollo_desc: "Poulet aux poivrons, pommes de terre rôties et tomate.",
+  abbacchio_desc: "Agneau au four avec pommes de terre.",
+  cotoletta_desc: "Escalope panée avec frites.",
+
+  cicoria_desc: "Chicorée sautée à l’ail et au piment.",
+  insalata_pomodori_desc: "Salade verte avec tomates.",
+  patate_forno_desc: "Pommes de terre rôties.",
+  patate_fritte_desc: "Frites.",
+  pure_desc: "Purée de pommes de terre.",
+
+  pinsa_margherita_desc: "Tomate, mozzarella et basilic.",
+  pinsa_funghi_desc: "Tomate, mozzarella et champignons.",
+  pinsa_cacioepepe_desc: "Mozzarella, fromage et poivre.",
+  pinsa_contadina_desc: "Tomate, mozzarella, courgettes, aubergines et poivrons.",
+  pinsa_napoli_desc: "Tomate, mozzarella, anchois et origan.",
+  pinsa_parma_desc: "Tomate, mozzarella et jambon cru.",
+  pinsa_quattroformaggi_desc: "Fromage bleu, mozzarella, provola et brie.",
+  pinsa_diavola_desc: "Tomate, mozzarella et saucisson piquant.",
+  pinsa_capricciosa_desc: "Tomate, mozzarella, jambon cuit, œuf, olives, artichauts et champignons.",
+  pinsa_boscaiola_desc: "Mozzarella, champignons et saucisse.",
+  pinsa_salsicciaepatate_desc: "Mozzarella, saucisse, pommes de terre rôties et romarin.",
+  pinsa_tonno_desc: "Tomate, mozzarella, thon, oignon et câpres.",
+  pinsa_rustica_desc: "Tomate, mozzarella, saucisse et chicorée sautée.",
+  pinsa_bufalina_desc: "Tomates cerises fraîches, mozzarella, mozzarella de bufflonne et basilic.",
+  pinsa_salmone_desc: "Mozzarella, saumon fumé et roquette.",
+  pinsa_crostino_desc: "Mozzarella, jambon cuit et huile d’olive vierge extra.",
+
+  ins_garbatella_desc: "Mesclun, thon, maïs, œuf dur, olives, tomates, carottes.",
+  ins_testaccio_desc: "Roquette, bresaola, grana, olives, aubergines.",
+  ins_borgo_desc: "Roquette, saumon fumé, feta, agrumes, noix.",
+  trastevere_desc: "Mesclun, mozzarella de bufflonne, tomates, olives, maïs, courgettes.",
+
+  tiramisu_desc: "Tiramisù espresso “Tonnarello” avec biscuits Gentilini.",
+  cheesecake_bosco_desc: "Cheesecake aux fruits rouges.",
+  cheesecake_desc: "Cheesecake au Nutella.",
+  pannacotta_desc: "Panna cotta aux fraises.",
+  salame_desc: "Saucisson au chocolat fait maison.",
+  tortino_desc: "Moelleux au chocolat au cœur coulant.",
+  gelato_desc: "Glace à la crème “affogato” au café espresso."
+},
+    ko: {
+  carciofo_desc: "로마 전통 요리입니다.",
+  patate_desc: "치즈와 후추로 맛을 낸 감자 요리입니다.",
+  tris_desc: "브루스케타 모둠: 토마토 / 모짜렐라와 생햄 / 모짜렐라와 멸치.",
+  suppli_desc: "미니 수플리 모둠(총 8개): 아마트리치아나, 라구, 치즈&후추, 감자 크로케.",
+  calamari_desc: "바삭하게 튀긴 오징어.",
+  tagliere_desc: "생햄과 치즈 모둠.",
+  caprese_desc: "버팔로 모짜렐라와 토마토.",
+  prosciutto_desc: "생햄과 버팔로 모짜렐라.",
+  focaccia_desc: "따뜻한 포카치아, 엑스트라버진 올리브오일과 로즈마리.",
+  marinara_desc: "토마토, 마늘, 오레가노.",
+
+  tonn_caciopepe_desc: "신선한 달걀 파스타에 치즈와 후추.",
+  carbonara_desc: "신선한 달걀 파스타에 관찰레, 달걀, 페코리노.",
+  nonnanadia_desc: "신선한 달걀 파스타에 가지, 올리브, 케이퍼, 방울토마토.",
+  amatriciana_desc: "신선한 달걀 파스타에 관찰레와 토마토.",
+  gricia_desc: "신선한 달걀 파스타에 관찰레, 페코리노 로마노, 후추.",
+  polpettepasta_desc: "신선한 달걀 파스타에 미트볼 소스.",
+  lasagna_desc: "프로볼라 치즈와 그라나 파다노(DOP).",
+  pesto_desc: "페스토 리가토니.",
+
+  baccala_desc: "대구 미트볼과 마리나라 소스.",
+  polpettecacio_desc: "소고기 미트볼(치즈&후추 속, 소스).",
+  polpettesugo_desc: "엄마표 토마토 소스.",
+  polpette_vaccinara_desc: "바치나라 스타일 미트볼.",
+  polpette_melanzane_desc: "가지와 감자 미트볼.",
+
+  saltimbocca_desc: "돼지고기 슬라이스에 생햄과 감자 퓌레.",
+  tagliata_desc: "소고기 타글리아타, 루콜라, 그라나, 방울토마토.",
+  straccetti_desc: "와인 소스 소고기 스트라체티, 루콜라와 그라나, 오븐 감자.",
+  coda_desc: "바치나라식 소꼬리 스튜와 감자 퓌레.",
+  pollo_desc: "닭고기와 파프리카, 오븐 감자, 토마토.",
+  abbacchio_desc: "오븐에 구운 양고기와 감자.",
+  cotoletta_desc: "빵가루 돈가스와 감자튀김.",
+
+  cicoria_desc: "마늘과 고추로 볶은 치코리.",
+  insalata_pomodori_desc: "그린 샐러드와 토마토.",
+  patate_forno_desc: "오븐 감자.",
+  patate_fritte_desc: "감자튀김.",
+  pure_desc: "감자 퓌레.",
+
+  pinsa_margherita_desc: "토마토, 모짜렐라, 바질.",
+  pinsa_funghi_desc: "토마토, 모짜렐라, 버섯.",
+  pinsa_cacioepepe_desc: "모짜렐라, 치즈, 후추.",
+  pinsa_contadina_desc: "토마토, 모짜렐라, 주키니, 가지, 파프리카.",
+  pinsa_napoli_desc: "토마토, 모짜렐라, 멸치, 오레가노.",
+  pinsa_parma_desc: "토마토, 모짜렐라, 생햄.",
+  pinsa_quattroformaggi_desc: "블루치즈, 모짜렐라, 프로볼라, 브리.",
+  pinsa_diavola_desc: "토마토, 모짜렐라, 매콤한 살라미.",
+  pinsa_capricciosa_desc: "토마토, 모짜렐라, 햄, 달걀, 올리브, 아티초크, 버섯.",
+  pinsa_boscaiola_desc: "모짜렐라, 버섯, 소시지.",
+  pinsa_salsicciaepatate_desc: "모짜렐라, 소시지, 오븐 감자, 로즈마리.",
+  pinsa_tonno_desc: "토마토, 모짜렐라, 참치, 양파, 케이퍼.",
+  pinsa_rustica_desc: "토마토, 모짜렐라, 소시지, 치코리 볶음.",
+  pinsa_bufalina_desc: "방울토마토, 모짜렐라, 버팔로 모짜렐라, 바질.",
+  pinsa_salmone_desc: "모짜렐라, 훈제 연어, 루콜라.",
+  pinsa_crostino_desc: "모짜렐라, 햄, 엑스트라버진 올리브오일.",
+
+  ins_garbatella_desc: "믹스 샐러드, 참치, 옥수수, 삶은 달걀, 올리브, 토마토, 당근.",
+  ins_testaccio_desc: "루콜라, 브레사올라, 그라나, 올리브, 가지.",
+  ins_borgo_desc: "루콜라, 훈제 연어, 페타, 감귤류, 호두.",
+  trastevere_desc: "믹스 샐러드, 버팔로 모짜렐라, 토마토, 올리브, 옥수수, 주키니.",
+
+  tiramisu_desc: "젠틸리니 비스킷을 곁들인 ‘톤나렐로’ 에스프레소 티라미수.",
+  cheesecake_bosco_desc: "베리 치즈케이크.",
+  cheesecake_desc: "누텔라 치즈케이크.",
+  pannacotta_desc: "딸기를 곁들인 판나코타.",
+  salame_desc: "수제 초콜릿 살라미.",
+  tortino_desc: "초콜릿 퐁당 케이크.",
+  gelato_desc: "에스프레소를 곁들인 크림 젤라또(아포가토)."
+},
+    ja: {
+  carciofo_desc: "ローマの伝統料理です。",
+  patate_desc: "チーズと黒胡椒で和えたポテトです。",
+  tris_desc: "ブルスケッタ盛り合わせ：トマト／モッツァレラと生ハム／モッツァレラとアンチョビ。",
+  suppli_desc: "ミニスップリ盛り合わせ（全8個）：アマトリチャーナ、ラグー、チーズ&胡椒、ポテトコロッケ。",
+  calamari_desc: "カラマリのフリット。",
+  tagliere_desc: "生ハムとチーズの盛り合わせ。",
+  caprese_desc: "水牛モッツァレラとトマト。",
+  prosciutto_desc: "生ハムと水牛モッツァレラ。",
+  focaccia_desc: "温かいフォカッチャ（EXVオリーブオイルとローズマリー）。",
+  marinara_desc: "トマト、にんにく、オレガノ。",
+
+  tonn_caciopepe_desc: "卵入り生パスタのカチョエペペ。",
+  carbonara_desc: "卵入り生パスタのカルボナーラ（グアンチャーレ、卵、ペコリーノ）。",
+  nonnanadia_desc: "卵入り生パスタ：ナス、オリーブ、ケッパー、ミニトマト。",
+  amatriciana_desc: "卵入り生パスタ：グアンチャーレとトマト。",
+  gricia_desc: "卵入り生パスタ：グアンチャーレ、ペコリーノロマーノ、胡椒。",
+  polpettepasta_desc: "卵入り生パスタ：ミートボールソース。",
+  lasagna_desc: "プロヴォラとグラナ・パダーノDOP。",
+  pesto_desc: "ペストのリガトーニ。",
+
+  baccala_desc: "塩ダラのミートボール マリナーラソース。",
+  polpettecacio_desc: "牛肉ミートボール（チーズ&胡椒のフィリング＆ソース）。",
+  polpettesugo_desc: "お母さんのトマトソース。",
+  polpette_vaccinara_desc: "ヴァッチナーラ風ミートボール。",
+  polpette_melanzane_desc: "ナスとポテトのミートボール。",
+
+  saltimbocca_desc: "豚肉のサルティンボッカ（生ハム）とマッシュポテト。",
+  tagliata_desc: "牛肉のタリアータ ルッコラ、グラナ、ミニトマト添え。",
+  straccetti_desc: "牛肉のストラチェッティ（ワインソース）ルッコラとグラナ、ローストポテト添え。",
+  coda_desc: "コーダ・アッラ・ヴァッチナーラ（牛尾煮込み）マッシュポテト添え。",
+  pollo_desc: "鶏肉とパプリカ、ローストポテト、トマト。",
+  abbacchio_desc: "仔羊のオーブン焼き ポテト添え。",
+  cotoletta_desc: "カツレツ フライドポテト添え。",
+
+  cicoria_desc: "チコリのソテー（にんにくと唐辛子）。",
+  insalata_pomodori_desc: "グリーンサラダ（トマト）。",
+  patate_forno_desc: "ローストポテト。",
+  patate_fritte_desc: "フライドポテト。",
+  pure_desc: "マッシュポテト。",
+
+  pinsa_margherita_desc: "トマト、モッツァレラ、バジル。",
+  pinsa_funghi_desc: "トマト、モッツァレラ、きのこ。",
+  pinsa_cacioepepe_desc: "モッツァレラ、チーズ、胡椒。",
+  pinsa_contadina_desc: "トマト、モッツァレラ、ズッキーニ、ナス、パプリカ。",
+  pinsa_napoli_desc: "トマト、モッツァレラ、アンチョビ、オレガノ。",
+  pinsa_parma_desc: "トマト、モッツァレラ、生ハム。",
+  pinsa_quattroformaggi_desc: "ブルーチーズ、モッツァレラ、プロヴォラ、ブリー。",
+  pinsa_diavola_desc: "トマト、モッツァレラ、辛口サラミ。",
+  pinsa_capricciosa_desc: "トマト、モッツァレラ、ハム、卵、オリーブ、アーティチョーク、きのこ。",
+  pinsa_boscaiola_desc: "モッツァレラ、きのこ、ソーセージ。",
+  pinsa_salsicciaepatate_desc: "モッツァレラ、ソーセージ、ローストポテト、ローズマリー。",
+  pinsa_tonno_desc: "トマト、モッツァレラ、ツナ、玉ねぎ、ケッパー。",
+  pinsa_rustica_desc: "トマト、モッツァレラ、ソーセージ、チコリのソテー。",
+  pinsa_bufalina_desc: "ミニトマト、モッツァレラ、水牛モッツァレラ、バジル。",
+  pinsa_salmone_desc: "モッツァレラ、スモークサーモン、ルッコラ。",
+  pinsa_crostino_desc: "モッツァレラ、ハム、EXVオリーブオイル。",
+
+  ins_garbatella_desc: "ミックスリーフ、ツナ、コーン、ゆで卵、オリーブ、トマト、にんじん。",
+  ins_testaccio_desc: "ルッコラ、ブレザオラ、グラナ、オリーブ、ナス。",
+  ins_borgo_desc: "ルッコラ、スモークサーモン、フェタ、柑橘、くるみ。",
+  trastevere_desc: "ミックスリーフ、水牛モッツァレラ、トマト、オリーブ、コーン、ズッキーニ。",
+
+  tiramisu_desc: "ジェンティリーニのビスケット入り「トンナレッロ」エスプレッソ・ティラミス。",
+  cheesecake_bosco_desc: "ベリーのチーズケーキ。",
+  cheesecake_desc: "ヌテラのチーズケーキ。",
+  pannacotta_desc: "いちごのパンナコッタ。",
+  salame_desc: "自家製チョコサラミ。",
+  tortino_desc: "フォンダンショコラ。",
+  gelato_desc: "エスプレッソをかけたクリームジェラート（アフォガート）。"
+},
+    zh: {
+  carciofo_desc: "罗马传统经典菜。",
+  patate_desc: "奶酪黑胡椒风味土豆。",
+  tris_desc: "烤面包拼盘：番茄；马苏里拉奶酪配生火腿；马苏里拉奶酪配凤尾鱼。",
+  suppli_desc: "迷你炸饭团拼盘（共8个）：阿马特里恰娜、肉酱、奶酪黑胡椒、土豆可乐饼。",
+  calamari_desc: "金黄炸鱿鱼。",
+  tagliere_desc: "冷切肉和奶酪拼盘。",
+  caprese_desc: "水牛马苏里拉奶酪配番茄。",
+  prosciutto_desc: "生火腿配水牛马苏里拉奶酪。",
+  focaccia_desc: "热佛卡夏配特级初榨橄榄油与迷迭香。",
+  marinara_desc: "番茄、蒜、牛至。",
+
+  tonn_caciopepe_desc: "新鲜鸡蛋面配奶酪黑胡椒。",
+  carbonara_desc: "新鲜鸡蛋面配腮颊肉、鸡蛋和佩科里诺奶酪。",
+  nonnanadia_desc: "新鲜鸡蛋面配茄子、橄榄、酸豆和小番茄。",
+  amatriciana_desc: "新鲜鸡蛋面配腮颊肉和番茄。",
+  gricia_desc: "新鲜鸡蛋面配腮颊肉、罗马佩科里诺奶酪和黑胡椒。",
+  polpettepasta_desc: "新鲜鸡蛋面配肉丸酱。",
+  lasagna_desc: "普罗沃拉奶酪和格拉纳帕达诺DOP。",
+  pesto_desc: "青酱通心粉。",
+
+  baccala_desc: "鳕鱼肉丸配玛丽娜拉酱。",
+  polpettecacio_desc: "牛肉丸（奶酪黑胡椒内馅与酱）。",
+  polpettesugo_desc: "妈妈的番茄酱。",
+  polpette_vaccinara_desc: "“Vaccinara”风味肉丸。",
+  polpette_melanzane_desc: "茄子土豆丸子。",
+
+  saltimbocca_desc: "猪肉片配生火腿与土豆泥。",
+  tagliata_desc: "切片牛排配芝麻菜、格拉纳奶酪和小番茄。",
+  straccetti_desc: "葡萄酒汁牛肉条配芝麻菜、格拉纳奶酪和烤土豆。",
+  coda_desc: "牛尾炖菜（Vaccinara）配土豆泥。",
+  pollo_desc: "鸡肉配彩椒、烤土豆和番茄。",
+  abbacchio_desc: "烤羊肉配土豆。",
+  cotoletta_desc: "炸肉排配薯条。",
+
+  cicoria_desc: "蒜香辣椒炒菊苣。",
+  insalata_pomodori_desc: "生菜沙拉配番茄。",
+  patate_forno_desc: "烤土豆。",
+  patate_fritte_desc: "薯条。",
+  pure_desc: "土豆泥。",
+
+  pinsa_margherita_desc: "番茄、马苏里拉奶酪、罗勒。",
+  pinsa_funghi_desc: "番茄、马苏里拉奶酪、蘑菇。",
+  pinsa_cacioepepe_desc: "马苏里拉奶酪、奶酪、黑胡椒。",
+  pinsa_contadina_desc: "番茄、马苏里拉奶酪、西葫芦、茄子、彩椒。",
+  pinsa_napoli_desc: "番茄、马苏里拉奶酪、凤尾鱼、牛至。",
+  pinsa_parma_desc: "番茄、马苏里拉奶酪、生火腿。",
+  pinsa_quattroformaggi_desc: "蓝纹奶酪、马苏里拉、普罗沃拉、布里。",
+  pinsa_diavola_desc: "番茄、马苏里拉奶酪、辣味萨拉米。",
+  pinsa_capricciosa_desc: "番茄、马苏里拉奶酪、熟火腿、鸡蛋、橄榄、朝鲜蓟、蘑菇。",
+  pinsa_boscaiola_desc: "马苏里拉奶酪、蘑菇、香肠。",
+  pinsa_salsicciaepatate_desc: "马苏里拉奶酪、香肠、烤土豆、迷迭香。",
+  pinsa_tonno_desc: "番茄、马苏里拉奶酪、金枪鱼、洋葱、酸豆。",
+  pinsa_rustica_desc: "番茄、马苏里拉奶酪、香肠、炒菊苣。",
+  pinsa_bufalina_desc: "小番茄、马苏里拉、水牛马苏里拉、罗勒。",
+  pinsa_salmone_desc: "马苏里拉奶酪、烟熏三文鱼、芝麻菜。",
+  pinsa_crostino_desc: "马苏里拉奶酪、熟火腿、特级初榨橄榄油。",
+
+  ins_garbatella_desc: "混合生菜、金枪鱼、玉米、水煮蛋、橄榄、番茄、胡萝卜。",
+  ins_testaccio_desc: "芝麻菜、风干牛肉、格拉纳奶酪、橄榄、茄子。",
+  ins_borgo_desc: "芝麻菜、烟熏三文鱼、菲达奶酪、柑橘、核桃。",
+  trastevere_desc: "混合生菜、水牛马苏里拉、番茄、橄榄、玉米、西葫芦。",
+
+  tiramisu_desc: "“Tonnarello” 浓缩咖啡提拉米苏（配 Gentilini 饼干）。",
+  cheesecake_bosco_desc: "莓果芝士蛋糕。",
+  cheesecake_desc: "Nutella 榛子巧克力酱芝士蛋糕。",
+  pannacotta_desc: "草莓奶冻。",
+  salame_desc: "自制巧克力“香肠”。",
+  tortino_desc: "流心巧克力蛋糕。",
+  gelato_desc: "奶油冰淇淋配浓缩咖啡（Affogato）。"
+},
+    ar: {
+  carciofo_desc: "طبق تقليدي من المطبخ الروماني.",
+  patate_desc: "بطاطسنا بجبن وفلفل أسود.",
+  tris_desc: "تشكيلة بروشيتا: طماطم؛ موزاريلا مع بروشوتو؛ موزاريلا مع أنشوجة.",
+  suppli_desc: "سوبلي صغير مشكّل (8 قطع): أوماتريتشيانا، راغو، جبن وفلفل، وكروكيت بطاطس.",
+  calamari_desc: "كالاماري مقلي ومقرمش.",
+  tagliere_desc: "تشكيلة لحوم باردة وأجبان.",
+  caprese_desc: "موزاريلا جاموس مع طماطم.",
+  prosciutto_desc: "بروشوتو مع موزاريلا جاموس.",
+  focaccia_desc: "فوكاتشيا ساخنة بزيت زيتون بكر ممتاز وإكليل الجبل.",
+  marinara_desc: "طماطم، ثوم، وأوريغانو.",
+
+  tonn_caciopepe_desc: "باستا طازجة بالبيض مع جبن وفلفل.",
+  carbonara_desc: "باستا طازجة بالبيض مع غوانتشالي، بيض، وجبن بيكورينو.",
+  nonnanadia_desc: "باستا طازجة بالبيض مع باذنجان وزيتون وكبر وطماطم كرزية.",
+  amatriciana_desc: "باستا طازجة بالبيض مع غوانتشالي وطماطم.",
+  gricia_desc: "باستا طازجة بالبيض مع غوانتشالي وبيكورينو رومانو وفلفل.",
+  polpettepasta_desc: "باستا طازجة بالبيض مع صلصة كرات اللحم.",
+  lasagna_desc: "بروفولا وجرانا بادانو (DOP).",
+  pesto_desc: "ريغاتوني بصلصة البيستو.",
+
+  baccala_desc: "كرات لحم سمك القد مع صلصة مارينارا.",
+  polpettecacio_desc: "كرات لحم بقر بحشوة وصلصة جبن وفلفل.",
+  polpettesugo_desc: "بصلصة الطماطم المنزلية.",
+  polpette_vaccinara_desc: "كرات لحم على طريقة فاتشينارا.",
+  polpette_melanzane_desc: "كرات لحم بالباذنجان والبطاطس.",
+
+  saltimbocca_desc: "شرائح لحم خنزير مع بروشوتو وبوريه بطاطس.",
+  tagliata_desc: "شرائح لحم بقر مع جرجير وجبنة جرانا وطماطم كرزية.",
+  straccetti_desc: "شرائح لحم بقر بصلصة النبيذ مع جرجير وجبنة جرانا وبطاطس بالفرن.",
+  coda_desc: "ذيل بقر على طريقة فاتشينارا مع بوريه بطاطس.",
+  pollo_desc: "دجاج مع فلفل وبطاطس بالفرن وطماطم.",
+  abbacchio_desc: "لحم ضأن بالفرن مع بطاطس.",
+  cotoletta_desc: "كوتوليتا مغطاة بالبقسماط مع بطاطس مقلية.",
+
+  cicoria_desc: "هندباء (شيكوريا) مشوحة بالثوم والفلفل الحار.",
+  insalata_pomodori_desc: "سلطة خضراء مع طماطم.",
+  patate_forno_desc: "بطاطس بالفرن.",
+  patate_fritte_desc: "بطاطس مقلية.",
+  pure_desc: "بوريه بطاطس.",
+
+  pinsa_margherita_desc: "طماطم، موزاريلا، وريحان.",
+  pinsa_funghi_desc: "طماطم، موزاريلا، وفطر.",
+  pinsa_cacioepepe_desc: "موزاريلا، جبن، وفلفل.",
+  pinsa_contadina_desc: "طماطم، موزاريلا، كوسا، باذنجان، وفلفل.",
+  pinsa_napoli_desc: "طماطم، موزاريلا، أنشوجة، وأوريغانو.",
+  pinsa_parma_desc: "طماطم، موزاريلا، وبروشوتو.",
+  pinsa_quattroformaggi_desc: "جبن أزرق، موزاريلا، بروفولا، وبري.",
+  pinsa_diavola_desc: "طماطم، موزاريلا، وسلامي حار.",
+  pinsa_capricciosa_desc: "طماطم، موزاريلا، لحم مطبوخ، بيض، زيتون، خرشوف، وفطر.",
+  pinsa_boscaiola_desc: "موزاريلا، فطر، ونقانق.",
+  pinsa_salsicciaepatate_desc: "موزاريلا، نقانق، بطاطس بالفرن، وإكليل الجبل.",
+  pinsa_tonno_desc: "طماطم، موزاريلا، تونة، بصل، وكبر.",
+  pinsa_rustica_desc: "طماطم، موزاريلا، نقانق، وهندباء مشوحة.",
+  pinsa_bufalina_desc: "طماطم كرزية طازجة، موزاريلا، موزاريلا جاموس، وريحان.",
+  pinsa_salmone_desc: "موزاريلا، سلمون مدخن، وجرجير.",
+  pinsa_crostino_desc: "موزاريلا، لحم مطبوخ، وزيت زيتون بكر ممتاز.",
+
+  ins_garbatella_desc: "خليط خضار، تونة، ذرة، بيض مسلوق، زيتون، طماطم، جزر.",
+  ins_testaccio_desc: "جرجير، بريزاولا، جبنة جرانا، زيتون، باذنجان.",
+  ins_borgo_desc: "جرجير، سلمون مدخن، فيتا، حمضيات، جوز.",
+  trastevere_desc: "خليط خضار، موزاريلا جاموس، طماطم، زيتون، ذرة، كوسا.",
+
+  tiramisu_desc: "تيراميسو إسبريسو “Tonnarello” مع بسكويت Gentilini.",
+  cheesecake_bosco_desc: "تشيزكيك بالتوت/ثمار الغابة.",
+  cheesecake_desc: "تشيزكيك بنوتيلا.",
+  pannacotta_desc: "بانّا كوتا مع فراولة.",
+  salame_desc: "سلامي شوكولاتة منزلي.",
+  tortino_desc: "كيك شوكولاتة بقلب سائل.",
+  gelato_desc: "جيلاتو كريما “أفوغاتو” مع إسبريسو."
+},
 };
 
 /* ===== Render griglia allergeni ===== */
