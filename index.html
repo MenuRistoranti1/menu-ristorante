@@ -408,25 +408,74 @@
 
   .price{ font-size:17px; }
 }
-    /* ===== BARRA CATEGORIE FISSA ===== */
-.hero{
-  position: sticky;
-  top: 0;
-  z-index: 2000;
-  min-height: auto;          /* non più a tutta altezza */
-  padding: 10px 12px;        /* più compatta */
-  align-items: stretch;
-}
+/* ===== MOBILE: barra categorie sticky compatta ===== */
+@media (max-width: 600px){
 
-.hero-card{
-  padding: 12px 12px 10px;
+  /* riduco la home (non più 100vh) */
+  .hero{
+    min-height: auto;
+    padding: 12px 12px 10px;
+    align-items: flex-start;
+  }
+
+  .hero-card{
+    padding: 12px;
+    border-radius: 18px;
+  }
+
+  .hero-sub{
+    font-size: 14px;
+    margin: 6px 0 10px;
+  }
+
+  /* nascondo hint scroll */
+  .scroll-hint{ display:none; }
+
+  /* barra categorie fissa e scrollabile in orizzontale */
+  .btn-grid{
+    position: sticky;
+    top: 10px;
+    z-index: 2000;
+
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    padding: 10px;
+    border-radius: 18px;
+    background: rgba(0,0,0,0.25);
+    backdrop-filter: blur(10px);
+  }
+
+  .btn{
+    flex: 0 0 auto;
+    min-width: 140px;
+    padding: 10px 12px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .btn-grid::-webkit-scrollbar{ display:none; }
+
+  /* quando clicchi una sezione, non finisce sotto la barra */
+  .section{
+    scroll-margin-top: 90px;
+  }
 }
 
 /* griglia pulsanti più compatta */
 .btn-grid{
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 8px;
-  margin-top: 8px;
+    grid-template-columns: 1fr 1fr;  /* 2 colonne */
+    gap: 8px;
+  }
+  .btn{
+    padding: 10px 10px;          /* bottoni più bassi */
+    font-size: 14px;
+  }
+
+  .hero-sub{ font-size: 14px; margin: 6px 0 10px; }
+  .scroll-hint{ display:none; }  /* togli “scorri” */
 }
 
 /* nascondi hint scroll perché ormai la barra è fissa */
