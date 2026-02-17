@@ -185,12 +185,20 @@
     }
     .name span{ min-width:0; }
 
-    .desc{
-      margin: 0 0 10px;
-      opacity: .82;
-      font-size: 14px;
-      line-height: 1.35;
-    }
+.desc{
+  margin: 0 0 10px;
+  opacity: 1;
+  font-size: 14.5px;
+  line-height: 1.4;
+  color:#222;
+}
+    .name{
+  color:#111;
+}
+
+.price{
+  color:#000;
+}
 
     .row{
       display:flex;
@@ -391,6 +399,15 @@
 
   html[dir="rtl"] .meta-left { flex-direction: row-reverse; }
     html[dir="rtl"] .lightbox .close{ right:auto; left:14px; }
+    @media (max-width:600px){
+  body{ font-size:16px; }
+
+  .desc{ font-size:15px; }
+
+  .section-title{ font-size:24px; }
+
+  .price{ font-size:17px; }
+}
   </style>
 </head>
 
@@ -1153,7 +1170,7 @@
   </footer>
 
   <!-- LIGHTBOX -->
-  <div id="lightbox" class="lightbox" aria-hidden="true">
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog">
     <button class="close" id="lbClose" aria-label="Chiudi">✕</button>
     <img id="lbImg" alt="">
     <div class="hint" id="lbHint" data-ui="lb_hint">Clicca fuori o premi ESC per chiudere</div>
@@ -2290,7 +2307,7 @@ function onDishTap(e){
   if (img.dataset.noZoom === "1") return;
   if (src.startsWith("data:image/svg+xml")) return;
 
-  openLightbox(src, img.getAttribute("alt"));
+  openLightbox(img.src, img.alt || "dish image");
 }
 
 /* ===== INIT ===== */
