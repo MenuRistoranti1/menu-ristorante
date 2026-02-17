@@ -2384,8 +2384,31 @@ window.addEventListener("DOMContentLoaded", () => {
 
   applyLang(saved);
 
-  document.addEventListener("click", onDishTap);
-  document.addEventListener("touchend", onDishTap, { passive: true });
+ let isDragging = false;
+let startX = 0;
+let startY = 0;
+
+document.addEventListener("touchstart", (e) => {
+  const t = e.touches[0];
+  startX = t.clientX;
+  startY = t.clientY;
+  isDragging = false;
+}, { passive: true });
+
+document.addEventListener("touchmove", (e) => {
+  const t = e.touches[0];
+  if (Math.abs(t.clientX - startX) > 10 || Math.abs(t.clientY - startY) > 10) {
+    isDragging = true;
+  }
+}, { passive: true });
+
+document.addEventListener("touchend", (e) => {
+  if (isDragging) return;
+  onDishTap(e);
+}, { passive: true });
+
+// desktop
+document.addEventListener("click", onDishTap);
 
   lbClose && lbClose.addEventListener("click", closeLightbox);
   lb && lb.addEventListener("click", (e) => { if(e.target === lb) closeLightbox(); });
