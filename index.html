@@ -465,6 +465,12 @@
     scroll-margin-top: 90px;
   }
 }
+    @media (max-width: 600px){
+  body::before{
+    background-size: 100% 100%;    /* stretch: niente tagli, ma può deformare un po' */
+    background-position: center top;
+  }
+}
   </style>
 </head>
 
