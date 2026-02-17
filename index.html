@@ -408,7 +408,7 @@
 
   .price{ font-size:17px; }
 }
-/* ===== MOBILE: barra categorie sticky compatta ===== */
+/* ===== MOBILE: barra categorie sticky + scroll orizzontale ===== */
 @media (max-width: 600px){
 
   /* riduco la home (non più 100vh) */
@@ -418,7 +418,12 @@
     align-items: flex-start;
   }
 
+  /* rendo "sticky" tutta la card (più stabile che sticky su .btn-grid) */
   .hero-card{
+    position: sticky;
+    top: 0;
+    z-index: 3000;
+
     padding: 12px;
     border-radius: 18px;
   }
@@ -431,14 +436,11 @@
   /* nascondo hint scroll */
   .scroll-hint{ display:none; }
 
-  /* barra categorie fissa e scrollabile in orizzontale */
+  /* barra categorie scrollabile in orizzontale */
   .btn-grid{
-    position: sticky;
-    top: 10px;
-    z-index: 2000;
-
     display: flex;
     gap: 8px;
+
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 
@@ -458,34 +460,10 @@
 
   .btn-grid::-webkit-scrollbar{ display:none; }
 
-  /* quando clicchi una sezione, non finisce sotto la barra */
+  /* quando clicchi una sezione, non finisce sotto la barra sticky */
   .section{
-    scroll-margin-top: 90px;
+    scroll-margin-top: 140px;
   }
-}
-
-/* griglia pulsanti più compatta */
-.btn-grid{
-    grid-template-columns: 1fr 1fr;  /* 2 colonne */
-    gap: 8px;
-  }
-  .btn{
-    padding: 10px 10px;          /* bottoni più bassi */
-    font-size: 14px;
-  }
-
-  .hero-sub{ font-size: 14px; margin: 6px 0 10px; }
-  .scroll-hint{ display:none; }  /* togli “scorri” */
-}
-
-/* nascondi hint scroll perché ormai la barra è fissa */
-.scroll-hint{
-  display:none;
-}
-
-/* serve spazio sopra alle sezioni così non finiscono sotto la barra sticky */
-.section{
-  scroll-margin-top: 150px;
 }
   </style>
 </head>
