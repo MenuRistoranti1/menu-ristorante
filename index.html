@@ -408,12 +408,42 @@
 
   .price{ font-size:17px; }
 }
+    /* ===== BARRA CATEGORIE FISSA ===== */
+.hero{
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  min-height: auto;          /* non più a tutta altezza */
+  padding: 10px 12px;        /* più compatta */
+  align-items: stretch;
+}
+
+.hero-card{
+  padding: 12px 12px 10px;
+}
+
+/* griglia pulsanti più compatta */
+.btn-grid{
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* nascondi hint scroll perché ormai la barra è fissa */
+.scroll-hint{
+  display:none;
+}
+
+/* serve spazio sopra alle sezioni così non finiscono sotto la barra sticky */
+.section{
+  scroll-margin-top: 150px;
+}
   </style>
 </head>
 
 <body>
   <!-- HOME -->
-  <section class="hero" id="home">
+  <header class="hero" id="home">
     <div class="hero-card">
       <div class="topbar">
         <select id="langSelect" class="lang-select" aria-label="Seleziona lingua">
@@ -445,7 +475,7 @@
 
       <p class="scroll-hint" data-ui="scroll_hint">⬇️ Scorri oppure clicca una categoria</p>
     </div>
-  </section>
+  </header>
 
   <!-- MENU -->
   <div class="wrap">
